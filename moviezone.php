@@ -50,7 +50,9 @@
 			<div class="section">
 				<h2 id="mainHeader">Movie Zone</h2>
 
-				<?php echo "Site under construction!!"; ?>
+				<?php
+                                
+                                ?>
 
 			</div>
 
