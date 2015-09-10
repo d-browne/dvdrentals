@@ -1,0 +1,264 @@
+body
+{
+		font-family: Arial, Verdana, sans-serif;
+		background-color: #FF7400;
+		color: #A64B00;
+}
+
+h1
+{
+	background-color: #A64B00;
+	color: #FF9640;
+	font-family: Georgia, "Times New Roman", serif;
+	font-size: 300%;
+}
+
+h3
+{
+	text-decoration: underline;
+	color: #BF7130;
+}
+
+a:link
+{
+	color: #BF7130;
+	text-decoration: underline;
+	font-style: italic;
+	font-weight: bold;
+}
+
+a:hover
+{
+	color: #FFB273;
+}
+
+a:visited
+{
+	color: #BF7130;
+}
+
+#copyright
+{
+	text-align: center;
+	padding-bottom: 1em;
+}
+
+#copyright a:link{ color: #A64B00 }
+#copyright a:hover{ color: #FF9640 }
+
+
+.experience
+{
+	padding-right: 2em;
+	padding-left: 2em;
+}
+
+div.horizontalRule
+{
+	width: 100%;
+	border: 1px solid;
+}
+
+ul
+{
+	list-style-type: square;
+}
+
+.section
+{
+	padding-right: 2em;
+	padding-left: 2em;
+}
+
+.section h3
+{
+	background-color: #A64B00;
+	border-radius: 6px;
+	padding-left: .3em;
+	text-decoration: none;
+	color: #FFB273;
+}
+
+.bodyImage
+{
+	float: left;
+	margin-right: .5em;
+	border: 1px solid #1D7373;
+}
+
+#pageHeader
+{
+	text-align: left;
+	margin-bottom: 0;
+	background-color: transparent;
+	color: #A64B00;
+	padding-left: 0.5em;
+}
+
+#menuBar
+{
+	margin-top: 0;
+	line-height: 2em;
+	text-align: center;
+	float: left;
+	width:200px;
+}
+
+#rightColumn
+{
+	margin-top: 0;
+	text-align: center;
+	float: right;
+	width:200px;
+}
+
+#menuBar a
+{
+	color: #FFB273;
+	padding-right: 1em;
+	padding-left: 1em;
+	padding-top: 1%;
+	padding-bottom: .9%;
+	text-decoration: none;
+	/*Display links as blocks so they appear straight down */
+	display: block;
+}
+
+#menuBar a:hover
+{
+	background-color: #A64B00;
+}
+
+#headerBox
+{
+	background-image: url("../images/gradient_small.jpg");
+	height: 130px;
+	border: 1px solid #000;
+	border-bottom: 2px solid #000;
+	display: block;
+	margin-left: 200px;
+	margin-right: 200px;
+	min-width: 700px;
+}
+
+#centerColumn
+{
+	background-color: #FF9640;
+	margin-left: 201px;
+	margin-right: 201px;
+	margin-top: 0px;
+	bottom: 0;
+	border-bottom-right-radius: 30px;
+	border-bottom-left-radius: 30px;
+	min-width: 700px;
+}
+
+#mainHeader
+{
+	margin-top: 0px;
+	padding-left: 0.5em;
+	padding-top: .2em;
+	margin-bottom: 0px;
+	border: 1px solid red;
+}
+
+#menuHeader
+{
+	color: #A64B00;
+}
+
+#rightColumn
+{
+	font-style: italic;
+}
+
+#rightColumn h2
+{
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+}
+
+label
+{
+	text-align: right;
+	width: 6em;
+	display: inline-block;
+	padding-right: .2em;
+}
+
+fieldset 
+{
+	border: 2px solid #a64b00;
+	min-height: 250px;
+	text-align: left;
+}
+
+.newReleaseHeading
+{
+	font-weight: bold;
+	display: block;
+}
+
+.newReleaseBody
+{
+	display: block;
+	font-style: italic;
+}
+
+fieldset img 
+{
+	float: right;
+	padding-top: 1em;
+}
+
+#newReleasesHeader
+{
+	text-decoration: underline;
+}
+
+label
+{
+	padding-right: 20px;
+	width: 120px;
+	text-align: left;
+}
+
+#userDetailsSection
+{
+	padding-bottom: 50px;
+}
+
+#occupation
+{
+	width: 142px;
+}
+
+#submit
+{
+	margin-left: 10.5em;
+}
+
+.compulsoryStar
+{
+	color: red;
+	font-style: italic;
+}
+
+#compulsoryStarHelp
+{
+	color: red;
+	font-style: italic;
+}
+
+.contactHeading
+{
+	font-weight: bold;
+	padding-right: 1em;
+	text-align: right;
+}
+
+#gmap_canvas img
+{
+	max-width:none!important;
+	background:none!important;
+}

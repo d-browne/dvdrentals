@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>DVD Rentals</title>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="css/styles_main.css" type="text/css">
+</head>
+<body>
+	<div id="content">
+
+		<a href="index.html" id="headerBox">
+			<h1 id="pageHeader">DVD Rentals</h1>
+		</a>
+
+		<div id="menuBar">
+			<h3 id="menuHeader">Menu</h3>
+			<a href="index.html">Home</a>
+			<a href="join.html">Join</a>
+			<a href="techzone.html">Tech Zone</a>
+			<a href="moviezone.php">Movie Zone</a>
+			<a href="contact.html">Contact</a>
+		</div>
+
+		<div id="rightColumn">
+			<h2 id="newReleasesHeader">New Releases</h2>
+
+			<fieldset>
+				<legend>Home (2015)</legend>
+					
+
+
+					<span class="newReleaseHeading">Title: </span>
+					<span class="newReleaseBody">Home</span>
+
+					<span class="newReleaseHeading">Runtime: </span>
+					<span class="newReleaseBody">94 minutes</span>
+
+					<span class="newReleaseHeading">Description: </span>
+					<span class="newReleaseBody">Oh, an alien on the run from his own people, lands on Earth and makes friends with the adventurous Tip, who is on a quest of her own.</span>
+
+					<span class="newReleaseHeading">Image:</span>
+					<img src="images/home2015.jpg" alt="Home (2015)" />
+
+			</fieldset>
+			
+		</div>
+
+		<div id="centerColumn">
+			
+			<div class="section">
+				<h2 id="mainHeader">Tech Zone!</h2>
+
+				<img src="images/meForWeb.jpg" alt="Dominic 'Nick' Browne" class="bodyImage"/>
+
+				<p>Welcome to the tech zone. Looking for advice on all things IT realated? In this section our IT expert Nick will provide you with all the tips, tricks and hacks to make your Hardware and Software do exactly as you want it to!</p>
+			</div>
+
+			<div class="section">
+				<h2>Apache2 vs IIS 7.5/8.5: A developers choice</h2>
+
+				<p>As a web developer one of the first choices you’ll face is what web server software to use. The two most popular choices are the Aparche2 and Microsoft IIS. The choice that the web developer makes will have a profound impact on the future success of the website/web application in the areas of development costs, speed and portability. Therefore it is essential that the developer make the correct choice about which web server to utilize.</p>
+
+				<h3>The host operating system</h3>
+
+				<p>The host operating system plays a big role in this selection. While Apache2 is a cross platform web-server and can be run on a variety of host operating systems including GNU/Linux and Windows, IIS can only be deployed on Microsoft Windows based operating systems.</p>
+
+				<p>If the developer is developing simply for personal use/education this consideration may not be very significant. However when the development becomes more serious the developer may be constrained to a certain platform by their employer and therefore will have to choose a web-server that best fits with their requirements.</p>
+
+				<p>Certain work environments rely heavily on existing Microsoft servers such as active directory and integration with Microsoft SQL(MS-SQL) servers. IIS fits well in these environments and may be essential as it easily integrates with the existing technologies quit. However even in these environments Apache2 can still be used when configured correctly. </p>
+
+				<p>Systems that use non-Microsoft based operating systems cannot run IIS without some kind of emulation or virtual host. While this might be appropriate for a specific goal it would usually only add a large amount of processing and memory overhead which results in reduced performance and an increased cost.</p>
+
+				<h3>Supported Programming/Scripting languages</h3>
+
+				<p>Both Microsoft IIS and Apache2 support a number of server side scripting languages including:</p>
+				<ul>
+					<li>PHP</li>
+					<li>Pearl</li>
+					<li>Python; and</li>
+					<li>Ruby</li>
+				</ul>
+
+				<p>However Microsoft’s IIS natively supports proprietary scripting languages like its own asp.net language. While Apache2 does not support asp.net natively, asp.net code can be used with apache2 via a mono module, a cross platform open source implementation of the .net framework. (mod_mono, 2015)</p>
+
+				<p>Ultimately IIS and Apache2 have a comparable support of different programming/scripting languages, however IIS 8 was designed with the .net framework in mind. Tools such as visual studio readily churn out Web Applications that run directly on IIS with very minimal configuration and tweaking and the two software packages work well together for rapid development as well as team based approaches.</p>
+
+				<h3>Costs</h3>
+
+				<p>Apache2 is free open source software that requires no-upfront licensing fees and can be used in a conjunction with a plethora of free and non-free software packages. This makes Apache2 is extremely flexible cost wise as it allows developers/businesses to set their own budget in regards to the software costs.</p>
+
+				<p>Theoretically a full LAMP stack can be deployed with $0 licensing fees. That said there can still be costs involved in deploying a web project with 100% free software. This includes the costs of the computer hardware and internet provider fees (ISP). An alternative is to rent web-hosting from a 3rd party that allows use of their specialized hardware for a monthly fee, this can often be cheaper and offer better performance than hosting the web application on your own infrastructure.</p>
+
+				<p>IIS on the other hand requires the developer/businesses to purchase a license for proprietary software from Microsoft which can be quite expensive. The Microsoft website reports that standard windows server 2012 license can cost as much as $882. (How to buy Windows Server 2012 R2, 2015)</p>
+
+				<p>Similar to Apache2, in addition of the Windows license costs IIS developers have to then buy hardware to run their Windows operating system. The costs of deploying a Microsoft server are usually much higher than a free software stack because Windows requires more hard drive space to install and uses more memory.</p>
+
+				<p>Supporting Software packages also add costs to the overall development. As mentioned in the programming languages section IIS is often used in conjunction with asp.net. While it is possible to write asp.net code without visual studio, this is rarely done as visual studio is optimized for deploying web applications directly to IIS with minimal configuration tweaks. However Visual Studio is another cost to consider being priced at $499 from Microsoft. (Visual Studio Professional 2013, 2015)</p>
+
+				<h3>Hardware</h3>
+
+				<p>Apache2 can be compiled to run on a variety of different hardware configurations including ARM and MIPS processors as well as a number of different host operating systems including Windows. This makes Apache2 incredibly versatile, a major benefit for a person’s who doesn’t have hardware that supports Windows operating systems but would still like to run/develop their own website. IIS on the other hand is bound to its host operating system and is thus restricted to IA-32 or x86-64 processors limiting the number of different hardware configurations that it supports.</p>
+
+				<p>The windows operating system running IIS uses a considerable amount more disk space and ram than does a properly configured GNU/Linux system running Apache2. Using less disk space and ram can be beneficial for a number of reasons including:</p>
+
+				<ul>
+					<li>Running on portable hardware such as a smartphone;</li>
+					<li>Running on legacy hardware;</li>
+					<li>Making using of additional disk-space and ram to host additional websites/applications; and</li>
+					<li>Making use of additional disk-space and ram to perform other, non-web related services.</li>
+				</ul>
+
+				<h3>Customization/Extensions</h3>
+
+				<p>Both IIS and Apache2 have extensible functionality and support the creation of plugins and extensions. IIS supports the creation of extensions in C/C++ and C#/VB.net through Microsoft’s proprietary API. (IIS Extensions, 2015)</p>
+
+				<p>Apache 2 also supports the creation of extensions called modules. These are usually written in C. (Developing modules for the Apache HTTP Server 2.4, 2015)</p>
+
+				<p>One of the big advantages of Apache over IIS is that Apache, being open source allows developers who want to make changes or better understand the inner workings of the webserver are able to review/edit the source code of the webserver before compiling it. While this is not something the average user would ever need to worry about it does represent a far greater deal of flexibility.</p>
+
+				<h3>Support/Community</h3>
+
+				<p>Both IIS and Apache2 have a large community of users/developers willing to offer both free and paid support to those who are in need of assistance. As apache is currently the most popular webserver currently in use today there are simply far more enthusiasts willing to share tips and tricks with novice to experienced users in all areas of Apache, from configuration guides to the development of custom modules supporting specific user needs.</p>
+
+				<p>IIS also has as large community of users/developers as well but as IIS is generally used by businesses there are less people willing to offer free advice regarding IIS and far less enthusiasm for web servers as a hobby.</p>
+
+				<h3>Conclusion</h3>
+
+				<p>While both IIS 7.5/8.5 and Apache2 offer a convenient and easy to configure way to deploy web projects Apache2 has many advantages over IIS to smaller-scale users who want to deliver the best performance from possibly less expensive hardware and software.</p>
+
+				<p>IIS comes with many hidden costs such as the licensing of the windows platform, more expensive hardware/hosting costs and optional but highly recommended payed software like Visual Studio. </p>
+
+				<p>Apache2 can be deployed with an entirely free software stack unlike IIS and can make use of less expensive hardware making it much more affordable for a small business, enthusiast or student. </p>
+
+				<p>It is my recommendation that a novice stick with Apache2 unless they have a very specific reason to use IIS. Apache2 has a great community of enthusiasts to assist new users in configuration and maintenance and Apache2 works well for all the basic needs of a small scale user.</p>
+
+				<h3>References</h3>
+
+				<p>IIS Extensions, Viewed 3rd August 2015<br/>
+				&lt;https://msdn.microsoft.com/en-us/library/hh943083%28v=vs.90%29.aspx&gt;</p>
+
+				<p>Developing modules for the Apache HTTP Server 2.4, Viewed 3rd August 2015<br/>
+				&lt;http://httpd.apache.org/docs/2.4/developer/modguide.html&gt;</p>
+
+				<p>How to buy Windows Server 2012 R2, Viewed 3rd August 2015<br/>
+				&lt;https://www.microsoft.com/en-au/server-cloud/products/windows-server-2012-r2/purchasing.aspx&gt;</p>
+
+				<p>Visual Studio Professional 2013, Viewed 3rd August 2015<br/>
+				&lt;http://www.microsoftstore.com/store/msusa/en_US/pdp/Visual-Studio-Professional-2013/productID.284832200&gt;</p>
+
+				<p>mod_mono, Viewed 3rd August 2015<br/>
+				&lt;http://www.mono-project.com/docs/web/mod_mono/>&gt;</p>
+
+			</div>
+
+			<footer>
+				<div class="horizontalRule"></div>
+
+				<p id="copyright">Copyright © 2015 <a href="http://infotech.scu.edu.au/~dbrown31/">Dominic Browne - Infotech Site</a></p>
+			</footer>
+
+		</div>
+
+
+
+	</div>
+
+	
+
+</body>
+</html>

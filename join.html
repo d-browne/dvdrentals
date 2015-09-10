@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>DVD Rentals</title>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="css/styles_main.css" type="text/css">
+	<script type="text/javascript" src="scripts/formValidate.js"></script>
+</head>
+<body>
+	
+	<div id="content">
+
+		<a href="index.html" id="headerBox">
+			<h1 id="pageHeader">DVD Rentals</h1>
+		</a>
+
+		<div id="menuBar">
+			<h3 id="menuHeader">Menu</h3>
+			<a href="index.html">Home</a>
+			<a href="join.html">Join</a>
+			<a href="techzone.html">Tech Zone</a>
+			<a href="moviezone.php">Movie Zone</a>
+			<a href="contact.html">Contact</a>
+		</div>
+
+		<div id="rightColumn">
+			<h2 id="newReleasesHeader">New Releases</h2>
+
+			<fieldset>
+				<legend>Home (2015)</legend>
+					
+
+
+					<span class="newReleaseHeading">Title: </span>
+					<span class="newReleaseBody">Home</span>
+
+					<span class="newReleaseHeading">Runtime: </span>
+					<span class="newReleaseBody">94 minutes</span>
+
+					<span class="newReleaseHeading">Description: </span>
+					<span class="newReleaseBody">Oh, an alien on the run from his own people, lands on Earth and makes friends with the adventurous Tip, who is on a quest of her own.</span>
+
+					<span class="newReleaseHeading">Image:</span>
+					<img src="images/home2015.jpg" alt="Home (2015)" />
+
+			</fieldset>
+			
+		</div>
+
+		<div id="centerColumn">
+			
+			<div class="section">
+				<h2 id="mainHeader">Join us now and reserve your DVD rentals!</h2>
+
+					<form action="http://infotech.scu.edu.au/cgi-bin/echo_form" method="post" id="joinForm">
+
+						<div id="personalDetailsSection">
+							<h3>Personal details</h3>
+							<label>Surname:</label>
+							<input id="surname" type="text" maxlength="50" name="surname" 
+							placeholder="Enter Surname" pattern="[^\d\s]{2,50}" required/>
+							<span class="compulsoryStar">x</span>
+							<br/>
+							<label>Other names:</label>
+							<input id="otherNames" type="text" maxlength="60" name="otherNames" placeholder="Enter other names" pattern="[^\d]{2,60}" required/><span class="compulsoryStar">x</span>
+							<br />
+							<label>Mobile:</label>
+							<input id="mobile" type="text" maxlength="50" name="mobile" placeholder="0[4 or 5]XX XXX XXX"
+							pattern="0[4-5]\d{2} \d{3} \d{3}"/><span id="mobileStar" class="compulsoryStar">x</span>
+							<br />
+							<label>Landline:</label>
+							<input id="landLine" type="text" maxlength="50" name="landLine" placeholder="(0[2,3,6,7,8,or 9]) XXXXXXXX" pattern="0[2-9]\d{8}" /><span id="landlineStar" class="compulsoryStar">x</span>
+							<br />
+							<label>Email:</label>
+							<input id="email" type="email" maxlength="50" name="email" placeholder="Enter valid email" required/><span id="emailStar" class="compulsoryStar">x</span>
+							<br />
+							<label>Receve Magazine:</label>
+							<input id="recieveMagazine" type="checkbox" name="checkbox" checked="checked" /><span class="compulsoryStar">x</span>
+							<br />
+							<label>Street Address:</label>
+							<input id="streetAddress" type="text" maxlength="50" name="streetAddress" placeholder="Street name/number" /><span id="streetStar" class="compulsoryStar">x</span>
+							<br />
+							<label>State:</label>
+							<input id="sate" type="text" maxlength="50" name="state" placeholder="State or suburb"/><span id="stateStar" class="compulsoryStar">x</span>
+							<br />
+							<label>Post Code:</label>
+							<input id="postCode" type="text" maxlength="50" name="postCode" placeholder="XXXX" pattern="\d{4}"/><span id="postStar" class="compulsoryStar">x</span>
+							<br />
+							<label>Occupation:</label>
+							<select id="occupation" name="occupation">
+								<option value="none">None</option>
+								<option value="Builder">Builder</option>
+								<option value="Baker">Baker</option>
+								<option value="CandleMaker">Candle Maker</option>
+								<option value="Student">Student</option>
+								<option value="Teacher">Teacher</option>
+								<option value="Priest">Priest</option>
+								<option value="nPostie">Postie</option>
+								<option value="Cop">Cop</option>
+								<option value="Other">Other</option>
+							</select><span class="compulsoryStar">x</span>
+							<br/>
+							<label>Preffered Contact:</label>
+							Mobile: 	<input id="contactMobile" type="radio" value="contactMobile" name="contactMethod">
+							Email:		<input id="contactEmail" type="radio" value="contactEmail" checked="checked" name="contactMethod">
+							Landline: 	<input id="contactLandline" type="radio" value="contactLandline" name="contactMethod">
+
+							<input id="joinDate" name="joinDate" type="hidden" value="unset">
+
+							<!-- set hidden filed join date to current date as YYYY-MM-DD -->
+							<script type="text/javascript">
+							{
+								joinDate.value = generateDateString();
+							}
+								
+							</script>
+
+						</div>
+
+						<div id="userDetailsSection">
+
+							<h3>User details</h3>
+
+							<label>Username:</label>
+							<input id="userName" type="text" maxlength="50" name="userName" placeholder="6 chars, no whitespace" pattern="[^\s]{6,}" required/><span class="compulsoryStar">x</span>
+							<br />
+							<label>Password:</label>
+							<input id="passWord" type="password" maxlength="10" name="passWord" placeholder="type password" required/><span class="compulsoryStar">x</span>
+							<br />
+							<label>Verify password:</label>
+							<input id="verifyPassWord" type="password" maxlength="10" name="verifyPassWord" placeholder="type password again" required/><span class="compulsoryStar">x</span>
+							<br /><br />
+							<input id="submit" type="submit" value="Submit" name="submit" onClick="return submitButtonClicked()" >
+							<input id="resetButton" type="reset" onClick="defaultContacts()">
+
+							<p id="compulsoryStarHelp">x = compulsory field</p>
+
+						</div>
+
+					</form>
+					
+					<!-- Script to hide compulsory stars -->
+					<script type ="text/javascript">
+						defaultContacts();
+					</script>
+
+					<!-- Script to register form event handlers -->
+					<script type ="text/javascript" src ="scripts/formEvents.js"></script>
+
+
+			</div>
+
+
+
+			<footer>
+				<div class="horizontalRule"></div>
+
+				<p id="copyright">Copyright © 2015 <a href="http://infotech.scu.edu.au/~dbrown31/">Dominic Browne - Infotech Site</a></p>
+			</footer>
+
+		</div>
+
+
+
+	</div>
+
+	
+
+</body>
+</html>
