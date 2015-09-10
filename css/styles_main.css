@@ -186,7 +186,7 @@ label
 	padding-right: .2em;
 }
 
-fieldset 
+#rightColumn fieldset 
 {
 	border: 2px solid #a64b00;
 	min-height: 250px;
@@ -205,7 +205,7 @@ fieldset
 	font-style: italic;
 }
 
-fieldset img 
+#rightColumn fieldset img 
 {
 	float: right;
 	padding-top: 1em;
@@ -264,9 +264,7 @@ label
 }
 
 #moviezoneOptionsbar {
-	margin-top: .3%;
-	margin-bottom: .3%;
-	height: 50px; 
+	margin-top: 1%;
 }
 
 .moviezoneOptionButton {
@@ -283,7 +281,55 @@ label
 	padding-top:15px;
 }
 
+#moviesBox {
+	margin-top: .5%;
+	margin-bottom: 1%;
+}
+
+.movieFieldSet {
+	display: inline-block;
+	width: 400px;
+	background-color: #FFD264;
+	border: 1px solid white;
+	border-radius: 25px;
+	margin-right: 1%;
+	margin-bottom: 1%;
+}
+
+.movieFieldSet legend{
+	width: 400px;
+	background: linear-gradient(to right, #F03657 , #B90021);
+	border: 1px solid white;
+	border-radius: 2px;
+	color: #FFAA64;
+	font-weight: bold;
+}
+
+.movieThumbnail {
+	float: right;
+}
+
 .moviezoneOptionButton:hover {
 	background-color: #F03657;
 
+}
+
+.movieInfoField {
+	margin-bottom: .5%;
+}
+
+.movieInfoField label {
+	font-weight: bold;
+	width: auto;
+	padding-right: 2%;
+}
+
+#rentalType {
+	text-decoration: underline;
+	font-style: italic;
+}
+
+.movieDescription {
+	margin-top: 1em;
+	margin-bottom: 1em;
 }
