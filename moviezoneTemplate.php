@@ -1,53 +1,3 @@
-<?php
-    
-    // Check for search string
-    if (!isset($_GET['search']))
-    {
-        // Page not searched
-        // Set search type to new releases
-        $searchType = "new_release";
-    }
-    else
-    {
-        $searchType = strtolower($_GET['search']);
-    }
-    
-    // Set page title according to search type
-    switch ($searchType) {
-        case "all_movies":
-            // Code to display all movies
-            $pageTitle = "All Movies";              // Set page title
-            $includeFileName = "test.inc";          // Include name
-            break;
-        case "new_releases":
-            // Code to display new releases
-            $pageTitle = "New Releases";            // Set page title
-            $includeFileName = "new_releases.inc";          // Include name
-            break;
-        case "actor":
-            // Code to display search by actor
-            $pageTitle = "Search by Actor";
-            break;
-        case "genre":
-            // Code to display search by genre
-            $pageTitle = "Search by Genre";
-            break;
-        case "director":
-            // Code to display search by director
-            $pageTitle = "Search by Director";
-            break;
-        case "classification":
-            // Code to display search by director
-            $pageTitle = "Search by Classification";
-            break;
-        default:
-            // Unknown search type
-            $pageTitle = "New Releases";
-    }
-    
-    
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -98,27 +48,15 @@
 		<div id="centerColumn">
 			
 			<div class="section">
-				<h2 id="mainHeader">Movie Zone - <?php echo $pageTitle; ?></h2>
+				<h2 id="mainHeader">Movie Zone</h2>
                 
                 <div id="moviezoneOptionsbar">
-                	<a href="moviezone.php?search=all_movies">
-                		<div class="moviezoneOptionButton">All Movies</div>
-                    </a>
-                    <a href="moviezone.php?search=new_releases">
-                    	<div class="moviezoneOptionButton">New Releases</div>
-                    </a>
-                    <a href="moviezone.php?search=actor">
-                    	<div class="moviezoneOptionButton">By Actor</div>
-                    </a>
-                    <a href="moviezone.php?search=genre">
-                    	<div class="moviezoneOptionButton">By Genre</div>
-                    </a>
-                    <a href="moviezone.php?search=director">
-                    	<div class="moviezoneOptionButton">By Director</div>
-                    </a>
-                    <a href="moviezone.php?search=classification">
-                    	<div class="moviezoneOptionButton">By Classification</div>
-                    </a>
+                	<div class="moviezoneOptionButton">All Movies</div>
+                    <div class="moviezoneOptionButton">New Releases</div>
+                    <div class="moviezoneOptionButton">By Actor</div>
+                    <div class="moviezoneOptionButton">By Genre</div>
+                    <div class="moviezoneOptionButton">By Director</div>
+                    <div class="moviezoneOptionButton">By Classification</div>
                     <div class="moviezoneUserOptionButton">Login</div>
                     <div class="moviezoneUserOptionButton">Admin</div>
                 </div>
@@ -205,7 +143,7 @@
                 </div>
 
 				<?php
-                                include $includeFileName;
+                                include 'test.inc';
                                 ?>
 
 			</div>

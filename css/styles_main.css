@@ -299,6 +299,7 @@ label
 	font-weight: bold;
 	background-color: #92001A;
 	padding-top:15px;
+	box-shadow:0px 0px 0px 2px #7D0181 inset;
 }
 .moviezoneUserOptionButton:hover {
 	background-color: #B90021;
