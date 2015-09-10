@@ -8,7 +8,7 @@
 <body>
 	<div id="content">
 
-		<a href="index.html" id="headerBox">
+		<a href="index.php" id="headerBox">
 			<h1 id="pageHeader">DVD Rentals</h1>
 		</a>
 
