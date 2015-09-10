@@ -49,6 +49,15 @@
 			
 			<div class="section">
 				<h2 id="mainHeader">Movie Zone</h2>
+                
+                <div id="moviezoneOptionsbar">
+                	<div class="moviezoneOptionButton">All Movies</div>
+                    <div class="moviezoneOptionButton">New Releases</div>
+                    <div class="moviezoneOptionButton">By Actor</div>
+                    <div class="moviezoneOptionButton">By Genre</div>
+                    <div class="moviezoneOptionButton">By Director</div>
+                    <div class="moviezoneOptionButton">By Classification</div>
+                </div>
 
 				<?php
                                 
