@@ -43,6 +43,7 @@
         default:
             // Unknown search type
             $pageTitle = "New Releases";
+            $includeFileName = "new_releases.inc";
     }
     
     
@@ -125,89 +126,14 @@
                 
                 <div id="moviesBox">
                 
-                    <fieldset class="movieFieldSet">
-                        <legend>Captain America: The Winter Soilder</legend>
-                            <img class="movieThumbnail" src="images/movie_images/1250744227winter.jpg" width="105" height="150"/>
-                            <div class="movieInfoField"><label id="rentalType">Overnight Rental</label></div>
-                            <div class="movieInfoField"><label>Genre: </label>Adventure</div>
-                            <div class="movieInfoField"><label>Year:</label> 2014</div>
-                            <div class="movieInfoField"><label>Director:</label> Anthony Russo</div>
-                            <div class="movieInfoField"><label>Classification:</label> M</div>
-                            <div class="movieInfoField"><label>Starring:</label> Chris Evans, Samuel L. Jackson, Scarlett Johansson, Robert Redford, Sebastian Stan and Anthony Mackie.</div>
-                            <div class="movieInfoField"><label>Studio:</label> Marvel Studios</div>
-                            <div class="movieInfoField"><label>Tagline:</label> In heroes we trust. </div>
-                            <div class="movieInfoField"><label>Description:</label></div>
-                            <div class="movieDescription">As Steve Rogers struggles to embrace his role in the modern world, he teams up with another super soldier, the black widow, to battle a new threat from old history: an assassin known as the Winter Soldier.</div>
-                            <div class="movieInfoField"><label>Rental:</label> DVD - $5.00  BluRay - $6.00</div>
-                            <div class="movieInfoField"><label>Purchase:</label> DVD - $24.95  BluRay - $35.95</div>
-                            <div class="movieInfoField"><label>Availability:</label> DVD - 0   BluRay - 0</div>
-                            
-                    </fieldset>
-                    
-                    <fieldset class="movieFieldSet">
-                        <legend>Captain America: The Winter Soilder</legend>
-                            <img class="movieThumbnail" src="images/movie_images/1250744227winter.jpg" width="105" height="150"/>
-                            <div class="movieInfoField"><label id="rentalType">Overnight Rental</label></div>
-                            <div class="movieInfoField"><label>Genre: </label>Adventure</div>
-                            <div class="movieInfoField"><label>Year:</label> 2014</div>
-                            <div class="movieInfoField"><label>Director:</label> Anthony Russo</div>
-                            <div class="movieInfoField"><label>Classification:</label> M</div>
-                            <div class="movieInfoField"><label>Starring:</label> Chris Evans, Samuel L. Jackson, Scarlett Johansson, Robert Redford, Sebastian Stan and Anthony Mackie.</div>
-                            <div class="movieInfoField"><label>Studio:</label> Marvel Studios</div>
-                            <div class="movieInfoField"><label>Tagline:</label> In heroes we trust. </div>
-                            <div class="movieInfoField"><label>Description:</label></div>
-                            <div class="movieDescription">As Steve Rogers struggles to embrace his role in the modern world, he teams up with another super soldier, the black widow, to battle a new threat from old history: an assassin known as the Winter Soldier.</div>
-                            <div class="movieInfoField"><label>Rental:</label> DVD - $5.00  BluRay - $6.00</div>
-                            <div class="movieInfoField"><label>Purchase:</label> DVD - $24.95  BluRay - $35.95</div>
-                            <div class="movieInfoField"><label>Availability:</label> DVD - 0   BluRay - 0</div>
-                            
-                    </fieldset>
-                    
-                    <fieldset class="movieFieldSet">
-                        <legend>Captain America: The Winter Soilder</legend>
-                            <img class="movieThumbnail" src="images/movie_images/1250744227winter.jpg" width="105" height="150"/>
-                            <div class="movieInfoField"><label id="rentalType">Overnight Rental</label></div>
-                            <div class="movieInfoField"><label>Genre: </label>Adventure</div>
-                            <div class="movieInfoField"><label>Year:</label> 2014</div>
-                            <div class="movieInfoField"><label>Director:</label> Anthony Russo</div>
-                            <div class="movieInfoField"><label>Classification:</label> M</div>
-                            <div class="movieInfoField"><label>Starring:</label> Chris Evans, Samuel L. Jackson, Scarlett Johansson, Robert Redford, Sebastian Stan and Anthony Mackie.</div>
-                            <div class="movieInfoField"><label>Studio:</label> Marvel Studios</div>
-                            <div class="movieInfoField"><label>Tagline:</label> In heroes we trust. </div>
-                            <div class="movieInfoField"><label>Description:</label></div>
-                            <div class="movieDescription">As Steve Rogers struggles to embrace his role in the modern world, he teams up with another super soldier, the black widow, to battle a new threat from old history: an assassin known as the Winter Soldier.</div>
-                            <div class="movieInfoField"><label>Rental:</label> DVD - $5.00  BluRay - $6.00</div>
-                            <div class="movieInfoField"><label>Purchase:</label> DVD - $24.95  BluRay - $35.95</div>
-                            <div class="movieInfoField"><label>Availability:</label> DVD - 0   BluRay - 0</div>
-                            
-                    </fieldset>
-                    
-                    <fieldset class="movieFieldSet">
-                        <legend>Captain America: The Winter Soilder</legend>
-                            <img class="movieThumbnail" src="images/movie_images/1250744227winter.jpg" width="105" height="150"/>
-                            <div class="movieInfoField"><label id="rentalType">Overnight Rental</label></div>
-                            <div class="movieInfoField"><label>Genre: </label>Adventure</div>
-                            <div class="movieInfoField"><label>Year:</label> 2014</div>
-                            <div class="movieInfoField"><label>Director:</label> Anthony Russo</div>
-                            <div class="movieInfoField"><label>Classification:</label> M</div>
-                            <div class="movieInfoField"><label>Starring:</label> Chris Evans, Samuel L. Jackson, Scarlett Johansson, Robert Redford, Sebastian Stan and Anthony Mackie.</div>
-                            <div class="movieInfoField"><label>Studio:</label> Marvel Studios</div>
-                            <div class="movieInfoField"><label>Tagline:</label> In heroes we trust. </div>
-                            <div class="movieInfoField"><label>Description:</label></div>
-                            <div class="movieDescription">As Steve Rogers struggles to embrace his role in the modern world, he teams up with another super soldier, the black widow, to battle a new threat from old history: an assassin known as the Winter Soldier.</div>
-                            <div class="movieInfoField"><label>Rental:</label> DVD - $5.00  BluRay - $6.00</div>
-                            <div class="movieInfoField"><label>Purchase:</label> DVD - $24.95  BluRay - $35.95</div>
-                            <div class="movieInfoField"><label>Availability:</label> DVD - 0   BluRay - 0</div>
-                            
-                    </fieldset>
+                    <?php
+						// Call include
+						include $includeFileName;
+					
+					?>
                     
                 
                 </div>
-
-				<?php
-                                include $includeFileName;
-                                ?>
-
 			</div>
 
 			<footer>

@@ -313,15 +313,20 @@ label
 	margin-bottom: 1%;
 }
 
-.movieFieldSet {
+.movieFieldSetContainer {
 	display: inline-block;
+	width: 450px;
+	height: 35em;
+	align: left;
+}
+
+.movieFieldSet {
 	width: 400px;
 	background-color: #FFD264;
 	border: 1px solid white;
 	border-radius: 25px;
-	margin-right: 1%;
-	margin-bottom: 1%;
-	height: 35em;
+	margin: auto;
+	height: 95%;
 }
 
 .movieFieldSet legend{
