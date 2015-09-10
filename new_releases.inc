@@ -22,6 +22,8 @@
                 ON movie.genre_id=genre.genre_id
                 INNER JOIN director
                 ON movie.director_id=director.director_id
+                INNER JOIN studio
+                ON movie.studio_id=studio.studio_id
                 WHERE year >= 2014";
     $result = $dataConnection->query($query);
     
@@ -43,13 +45,13 @@
             echo '<div class="movieInfoField"><label>Director:</label> '.$row['director_name'].'</div>';
             echo '<div class="movieInfoField"><label>Classification:</label> '.$row['classification'].'</div>';
             echo '<div class="movieInfoField"><label>Starring:</label> '.join(', ', $actors).'</div>';
-            echo '<div class="movieInfoField"><label>Studio:</label> Marvel Studios</div>';
-            echo '<div class="movieInfoField"><label>Tagline:</label> In heroes we trust. </div>';
+            echo '<div class="movieInfoField"><label>Studio:</label> '.$row['studio_name'].'</div>';
+            echo '<div class="movieInfoField"><label>Tagline:</label> '.$row['tagline'].'</div>';
             echo '<div class="movieInfoField"><label>Description:</label></div>';
-            echo '<div class="movieDescription">As Steve Rogers struggles to embrace his role in the modern world, he teams up with another super soldier, the black widow, to battle a new threat from old history: an assassin known as the Winter Soldier.</div>';
-            echo '<div class="movieInfoField"><label>Rental:</label> DVD - $5.00  BluRay - $6.00</div>';
-            echo '<div class="movieInfoField"><label>Purchase:</label> DVD - $24.95  BluRay - $35.95</div>';
-            echo '<div class="movieInfoField"><label>Availability:</label> DVD - 0   BluRay - 0</div>';
+            echo '<div class="movieDescription">'.$row['plot'].'</div>';
+            echo '<div class="movieInfoField"><label>Rental:</label> DVD - $'.$row['DVD_rental_price'].'  BluRay - $'.$row['BluRay_rental_price'].'</div>';
+            echo '<div class="movieInfoField"><label>Purchase:</label> DVD - $'.$row['DVD_purchase_price'].'  BluRay - $'.$row['BluRay_purchase_price'].'</div>';
+            echo '<div class="movieInfoField"><label>Availability:</label> DVD - '.$row['numDVD'].'   BluRay - '.$row['numBluRay'].'</div>';
             echo '</fieldset>';
             echo '</div>';
         }   
