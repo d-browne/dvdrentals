@@ -57,6 +57,8 @@
                     <div class="moviezoneOptionButton">By Genre</div>
                     <div class="moviezoneOptionButton">By Director</div>
                     <div class="moviezoneOptionButton">By Classification</div>
+                    <div class="moviezoneUserOptionButton">Login</div>
+                    <div class="moviezoneUserOptionButton">Admin</div>
                 </div>
                 
                 <div id="moviesBox">
@@ -153,7 +155,6 @@
 			</footer>
 
 		</div>
-
 
 
 	</div>
