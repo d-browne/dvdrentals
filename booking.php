@@ -10,10 +10,30 @@
     // Check if logout GET request recieved
     if (isset($_GET['logout'])) {
         // Set logged in flag to false
-        $_SESSION['isLoggedIn'] = false;
+        session_destroy(); // Destory session
     }
     
+    // Check if clear GET request recieved
+    if (isset($_GET['clear'])) {
+        // Clear cart
+        $_SESSION['cartMovies'] = [];
+        $_SESSION['numberInCart'] = count($_SESSION['cartMovies']);
+    }
     
+    // Check for remove POST request
+    if (isset($_POST['remove'])) {
+        // Remove movie from array
+        unset($_SESSION['cartMovies'][$_POST['title']]);
+        $_SESSION['numberInCart'] = count($_SESSION['cartMovies']);
+    }
+    
+    // book POST request recieved add movie to sesison variable
+    if (isset($_POST['book'])) {
+        if ($_SESSION['numberInCart'] < 5) {
+            $_SESSION['cartMovies'][$_POST['title']] = $_POST['movie_id'];
+            $_SESSION['numberInCart'] = count($_SESSION['cartMovies']);
+        }
+    }
 
 
 ?>
@@ -106,7 +126,7 @@
                         // Check if logged in
                         if ($_SESSION['isLoggedIn']) {
                             // Display cart
-                            echo 'placeholder for cart';
+                            include 'cart.inc';
                         }
                         else {
                             // Display login form

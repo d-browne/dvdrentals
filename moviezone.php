@@ -153,6 +153,7 @@
                     <?php
 						// Call include
 						include $includeFileName;
+                                                var_dump($_SESSION['cartMovies']);
 					
 					?>
                     

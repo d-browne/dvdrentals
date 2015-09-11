@@ -38,10 +38,10 @@
                 header('Location: moviezone.php');
                 die(); // Terminate script execution
             } else {
-                echo '<div id="loginMessage">Invalid password...</div>'; // Bad password message
+                echo '<div id="loginMessage">Invalid password...</div>';    // Bad password message
             }
         } else {
-            echo '<div id="loginMessage">User not found...</div>';  // User not in database message
+            echo '<div id="loginMessage">User not found...</div>';          // User not in database message
         }
     }
 ?>

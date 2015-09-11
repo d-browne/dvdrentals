@@ -56,8 +56,32 @@
             // If logged in add cart button
             if ($_SESSION['isLoggedIn']) {
                 echo '<form action="booking.php" method="post">';
-                echo '<input type="hidden" name="movie_id" value="'.$row['movie_id'].'" />'; // Hidden field to contain name of movie
-                echo '<input class="movieButton" type="submit" value="Add to Cart" />'
+                echo '<input type="hidden" name="title" value="'.$row['title'].'" />'; // Hidden field to contain title of movie
+                echo '<input type="hidden" name="movie_id" value="'.$row['movie_id'].'" />'; // Hidden field to contain id of movie
+                // Check if cart is not full
+                if (!($_SESSION['numberInCart'] >= 5)) {
+                        // Check if in stock
+                        if ($row['numDVD'] > 0 || $row['numBluRay'] > 0) {
+                            // Check if both dvd and blueray in stock
+                            if ($row['numDVD'] > 0 and $row['numBluRay'] > 0) {
+                                echo '<input class="movieButton" name="book" type="submit" value="Add to Cart" />';
+                            }
+                            // Check if dvd in stock but blueray out
+                            if ($row['numDVD'] > 0 and $row['numBluRay'] == 0) {
+                                echo '<input class="movieButton" name="book" type="submit" value="Only DVD" />';
+                            }
+                            // Check if BluRay in stock but dvd out
+                            if ($row['numDVD'] == 0 and $row['numBluRay'] > 0) {
+                                echo '<input class="movieButton" name="book" type="submit" value="Only BluRay" />';
+                            }
+                    } else {
+                        echo '<input class="movieButtonOut" name="book" type="submit" disabled="" value="Out" />';
+                    }
+                } else {
+                    echo '<input class="movieButtonOut" name="book" type="submit" disabled="" value="Cart Full" />';
+                }
+                
+                
                 echo '</form>';
             }
             
