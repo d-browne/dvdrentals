@@ -48,7 +48,12 @@
 		<div id="centerColumn">
 			
 			<div class="section">
-				<h2 id="mainHeader">Movie Zone - Booking</h2>
+				<h2 id="mainHeader">
+                	Movie Zone - Booking
+                    <a id="cartLink" href="booking.php">
+                    	<div id="cartDiv"><span id="cartItems">1</span><img src="images/cartIcon.png" alt="cart" width="27"/></div>
+                    </a>
+                </h2>
                 
                 <div id="moviezoneOptionsbar">
                 	<a href="moviezone.php?search=all_movies">

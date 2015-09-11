@@ -1,4 +1,6 @@
 <?php
+    // start session
+    session_start();
     
     // Check for search string
     if (!isset($_GET['search']))
@@ -124,8 +126,8 @@
                     <a href="moviezone.php?search=classification">
                     	<div class="moviezoneOptionButton">By Classification</div>
                     </a>
-                    <a href="booking.php">
-                        <div class="moviezoneUserOptionButton">Login</div>
+                    <a href="booking.php<?php if ($_SESSION['isLoggedIn']) { echo '?logout';} ?>"> 
+                        <div class="moviezoneUserOptionButton"><?php if ($_SESSION['isLoggedIn']) { echo 'Logout';} else { echo 'Login'; } ?></div>
                     </a>
                     <div class="moviezoneUserOptionButton">Admin</div>
                 </div>

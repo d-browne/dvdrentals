@@ -1,3 +1,23 @@
+<?php
+    // start session
+    session_start();
+    
+    // Set logged in flag to false if not yet set
+    if (!isset($_SESSION['isLoggedIn'])) {
+        $_SESSION['isLoggedIn'] = false;
+    }
+    
+    // Check if logout GET request recieved
+    if (isset($_GET['logout'])) {
+        // Set logged in flag to false
+        $_SESSION['isLoggedIn'] = false;
+    }
+    
+    
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -69,13 +89,30 @@
                     <a href="moviezone.php?search=classification">
                     	<div class="moviezoneOptionButton">By Classification</div>
                     </a>
-                    <div class="moviezoneUserOptionButton">Login</div>
+                    <a href="booking.php<?php if ($_SESSION['isLoggedIn']) { echo '?logout';} ?>"> 
+                        <div class="moviezoneUserOptionButton"><?php if ($_SESSION['isLoggedIn']) { echo 'Logout';} else { echo 'Login'; } ?></div>
+                    </a>
                     <div class="moviezoneUserOptionButton">Admin</div>
                 </div>
                 
                 <div id="moviesBox">
                 
-                   <?php echo "test"; ?>
+                   <?php
+                        // Display logged out message if logged out
+                        if (isset($_GET['logout'])) {
+                            echo '<div id="loginMessage">Logged out!</div>';
+                        }
+                   
+                        // Check if logged in
+                        if ($_SESSION['isLoggedIn']) {
+                            // Display cart
+                            echo 'place holder for cart';
+                        }
+                        else {
+                            // Display login form
+                            include 'login.inc';
+                        }
+                   ?>
                     
                 
                 </div>

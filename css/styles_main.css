@@ -161,6 +161,26 @@ ul
 	margin-bottom: 0px;
 	border: 2px solid red;
 	border-top: none;
+	position: relative;
+}
+
+#cartDiv {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+#cartItems {
+	font-size: 50%;
+	color: white;
+	background-color: red;
+	border-radius: 10px;
+}
+#cartLink {
+	font-style: normal;
+	color: white;
+}
+#cartLink:hover cartLink{
+	text-decoration: underline;
 }
 
 #menuHeader
@@ -430,4 +450,8 @@ label
 
 #loginButton:hover {
 	background-color: #F03657;
+}
+
+#loginMessage {
+	font-style: italic;
 }
