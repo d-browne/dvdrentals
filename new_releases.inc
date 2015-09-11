@@ -38,7 +38,9 @@
             echo '<div class="movieFieldSetContainer">';
             echo '<fieldset class="movieFieldSet">';
             echo '<legend>'.$row['title'].'</legend>';
+            echo '<a href="images/movie_images/'.$row['thumbpath'].'" target="_blank">';
             echo '<img class="movieThumbnail" src="images/movie_images/'.$row['thumbpath'].'" width="105" height="150"/>';
+            echo '</a>';
             echo '<div class="movieInfoField"><label id="rentalType">'.$row['rental_period'].' Rental</label></div>';
             echo '<div class="movieInfoField"><label>Genre: </label>'.$row['genre_name'].'</div>';
             echo '<div class="movieInfoField"><label>Year:</label> '.$row['year'].'</div>';
