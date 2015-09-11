@@ -42,6 +42,7 @@
         case "classification":
             // Code to display search by director
             $pageTitle = "Search by Classification";
+            $includeFileName = "classification.inc"; 
             break;
         default:
             // Unknown search type
