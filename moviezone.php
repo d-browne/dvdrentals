@@ -37,6 +37,7 @@
         case "director":
             // Code to display search by director
             $pageTitle = "Search by Director";
+            $includeFileName = "director.inc";  
             break;
         case "classification":
             // Code to display search by director

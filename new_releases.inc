@@ -22,7 +22,7 @@
     $result = $dataConnection->query($query);
     
     
-    // Uf result found
+    // If result found
     if ($result->num_rows > 0) {
         // Print number of results
         echo '<div id="resultsTag">Showing '.$result->num_rows.' results....</div>';
