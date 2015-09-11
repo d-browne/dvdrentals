@@ -1,14 +1,7 @@
 <?php
-    // start session
-    session_start();
+    // Include user session globals
+    include 'user_session_globals.inc';
     
-    // Session variable to track number of movies in cart
-    if (!isset($_SESSION['numberInCart'])) {
-        $_SESSION['numberInCart'] = 0;
-    }
-    if (!isset($_SESSION['cartMovies'])) {
-        $_SESSION['cartMovies'] = [];
-    }
     // Check for search string
     if (!isset($_GET['search']))
     {

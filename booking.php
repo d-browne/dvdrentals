@@ -1,15 +1,11 @@
 <?php
-    // start session
-    session_start();
-    
-    // Set logged in flag to false if not yet set
-    if (!isset($_SESSION['isLoggedIn'])) {
-        $_SESSION['isLoggedIn'] = false;
-    }
+    //Include user session globals
+    include 'user_session_globals.inc';
     
     // Check if logout GET request recieved
     if (isset($_GET['logout'])) {
         // Set logged in flag to false
+        $_SESSION['isLoggedIn'] = false;
         session_destroy(); // Destory session
     }
     
