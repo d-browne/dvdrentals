@@ -1,4 +1,7 @@
 <?php
+    // use session
+    //session_start();
+
     // Include database settings
     include 'database_settings.inc';    // Edit database_settings.inc to change database settings
     
@@ -50,6 +53,11 @@
             echo '<div class="movieInfoField"><label>Rental:</label> DVD - $'.$row['DVD_rental_price'].'  BluRay - $'.$row['BluRay_rental_price'].'</div>';
             echo '<div class="movieInfoField"><label>Purchase:</label> DVD - $'.$row['DVD_purchase_price'].'  BluRay - $'.$row['BluRay_purchase_price'].'</div>';
             echo '<div class="movieInfoField"><label>Availability:</label> DVD - '.$row['numDVD'].'   BluRay - '.$row['numBluRay'].'</div>';
+            // If logged in add cart button
+            if ($_SESSION['isLoggedIn']) {
+                echo '<form><input class="movieButton" type="submit" value="Add to Cart" /></form>';
+            }
+            
             echo '</fieldset>';
             echo '</div>';
         }   

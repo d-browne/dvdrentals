@@ -175,12 +175,12 @@ ul
 	background-color: red;
 	border-radius: 10px;
 }
+#cartItems:hover {
+	text-decoration: underline;
+}
 #cartLink {
 	font-style: normal;
 	color: white;
-}
-#cartLink:hover cartLink{
-	text-decoration: underline;
 }
 
 #menuHeader
@@ -342,6 +342,7 @@ label
 	width: 450px;
 	height: 35em;
 	align: left;
+	position: relative;
 }
 
 .movieFieldSet {
@@ -454,4 +455,30 @@ label
 
 #loginMessage {
 	font-style: italic;
+}
+
+#cartInformation {
+	margin-bottom: 1em;
+	font-weight: bold;
+	text-align: center;
+}
+
+.movieButton {
+	position:absolute;
+	bottom: 0;
+	right: 0;
+	margin-right: 1.5em;
+	margin-bottom: 1.5em;
+	background-color: #81003F;
+	border-radius: 10px;
+	border: 1px solid white;
+	width: 6em;
+	height: 2em;
+	font-size: large;
+	color: #FFAA64;
+}
+
+.movieButton:hover {
+	background-color: #A40050;
+	text-decoration: underline;
 }

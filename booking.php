@@ -106,7 +106,7 @@
                         // Check if logged in
                         if ($_SESSION['isLoggedIn']) {
                             // Display cart
-                            echo 'place holder for cart';
+                            echo 'placeholder for cart';
                         }
                         else {
                             // Display login form
