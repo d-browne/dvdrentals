@@ -32,6 +32,11 @@
         if ($_SESSION['numberInCart'] < 5) {
             $_SESSION['cartMovies'][$_POST['title']] = $_POST['movie_id'];
             $_SESSION['numberInCart'] = count($_SESSION['cartMovies']);
+            // Return to referring unless cart full, then proceed to cart page
+            if ($_SESSION['numberInCart']< 5) {
+                header('Location: ' . $_SERVER['HTTP_REFERER']);
+                die();
+            }
         }
     }
 
