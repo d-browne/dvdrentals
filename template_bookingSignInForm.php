@@ -1,58 +1,3 @@
-<?php
-    
-    // Check for search string
-    if (!isset($_GET['search']))
-    {
-        // Page not searched
-        // Set search type to new releases
-        $searchType = "new_release";
-    }
-    else
-    {
-        $searchType = strtolower($_GET['search']);
-    }
-    
-    // Set page title according to search type
-    switch ($searchType) {
-        case "all_movies":
-            // Code to display all movies
-            $pageTitle = "All Movies";                      // Set page title
-            $includeFileName = "all_movies.inc";            // Include name
-            break;
-        case "new_releases":
-            // Code to display new releases
-            $pageTitle = "New Releases";                    // Set page title
-            $includeFileName = "new_releases.inc";          // Include name
-            break;
-        case "actor":
-            // Code to display search by actor
-            $pageTitle = "Search by Actor";                 // Set page title
-            $includeFileName = "actor.inc";                 // Include name
-            break;
-        case "genre":
-            // Code to display search by genre
-            $pageTitle = "Search by Genre";                 // Set page title
-            $includeFileName = "genre.inc";                 // Include name
-            break;
-        case "director":
-            // Code to display search by director
-            $pageTitle = "Search by Director";
-            $includeFileName = "director.inc";  
-            break;
-        case "classification":
-            // Code to display search by director
-            $pageTitle = "Search by Classification";
-            $includeFileName = "classification.inc"; 
-            break;
-        default:
-            // Unknown search type
-            $pageTitle = "New Releases";
-            $includeFileName = "new_releases.inc";
-    }
-    
-    
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -103,7 +48,7 @@
 		<div id="centerColumn">
 			
 			<div class="section">
-				<h2 id="mainHeader">Movie Zone - <?php echo $pageTitle; ?></h2>
+				<h2 id="mainHeader">Movie Zone - Booking</h2>
                 
                 <div id="moviezoneOptionsbar">
                 	<a href="moviezone.php?search=all_movies">
@@ -124,21 +69,27 @@
                     <a href="moviezone.php?search=classification">
                     	<div class="moviezoneOptionButton">By Classification</div>
                     </a>
-                    <a href="booking.php">
-                        <div class="moviezoneUserOptionButton">Login</div>
-                    </a>
+                    <div class="moviezoneUserOptionButton">Login</div>
                     <div class="moviezoneUserOptionButton">Admin</div>
                 </div>
                 
                 <div id="moviesBox">
                 
-                    <?php
-						// Call include
-						include $includeFileName;
-					
-					?>
-                    
-                
+                   <div id="loginBox">
+                   		<fieldset id="loginFieldSet">
+                        	<legend>Login</legend>
+                            <form>
+                            	<div class="loginField"><label>Username: </label>
+                                	<span class="inputSpan"><input type="text" name="userName" placeholder="Username" required /></span>
+                                </div>
+                                <div class="loginField"><label>Password: </label>
+                                	<span class="inputSpan"><input type="text" name="password" placeholder="Password" required />
+                                </div>
+                                <input id="loginButton" type="submit" value="Login" />
+                            </form>
+                        </fieldset>
+                   </div>
+                   <div id="infoBox">Not registered yet? Click <a href="join.html">here</a> to join.</div>
                 </div>
 			</div>
 

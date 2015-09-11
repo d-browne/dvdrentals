@@ -372,3 +372,61 @@ label
 	font-style: italic;
 	margin-bottom: 0.5em;
 }
+
+#loginBox {
+	width: 40%;
+	display: inline-block;
+
+	height: 7em;
+	float: left;
+}
+
+#infoBox {
+	width: 40%;
+	display: inline-block;
+	height: 6em;
+	padding-top: 1em;
+	padding-left: .5%;
+	font-style: italic;
+}
+
+#loginBox fieldset {
+	border: 1px solid #B90021;
+}
+
+#loginBox fieldset legend {
+	font-weight: bold;
+}
+
+#loginBox label {
+	float: left;
+	margin-right: 0px;
+	width: 20%;
+	text-align: right;
+	font-weight: bold;
+}
+
+.inputSpan {
+	display: block;
+	overflow: hidden;
+}
+
+.inputSpan input {
+	width: 100%;
+}
+
+#loginButton {
+	border: 0px solid red;
+	border-radius: 10px;
+	background-color: #92001A;
+	width: 15%;
+	float: right;
+	color: #FF9640;
+	font-style: italic;
+	font-size: 90%;
+	font-weight: bold;
+}
+
+#loginButton:hover {
+	background-color: #F03657;
+}
