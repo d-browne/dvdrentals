@@ -27,11 +27,12 @@
         case "actor":
             // Code to display search by actor
             $pageTitle = "Search by Actor";                 // Set page title
-            $includeFileName = "actor.inc";          // Include name
+            $includeFileName = "actor.inc";                 // Include name
             break;
         case "genre":
             // Code to display search by genre
-            $pageTitle = "Search by Genre";
+            $pageTitle = "Search by Genre";                 // Set page title
+            $includeFileName = "genre.inc";                 // Include name
             break;
         case "director":
             // Code to display search by director
