@@ -16,17 +16,18 @@
     switch ($searchType) {
         case "all_movies":
             // Code to display all movies
-            $pageTitle = "All Movies";              // Set page title
-            $includeFileName = "test.inc";          // Include name
+            $pageTitle = "All Movies";                      // Set page title
+            $includeFileName = "all_movies.inc";            // Include name
             break;
         case "new_releases":
             // Code to display new releases
-            $pageTitle = "New Releases";            // Set page title
+            $pageTitle = "New Releases";                    // Set page title
             $includeFileName = "new_releases.inc";          // Include name
             break;
         case "actor":
             // Code to display search by actor
-            $pageTitle = "Search by Actor";
+            $pageTitle = "Search by Actor";                 // Set page title
+            $includeFileName = "search_actor.inc";          // Include name
             break;
         case "genre":
             // Code to display search by genre

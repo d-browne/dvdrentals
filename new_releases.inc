@@ -1,9 +1,6 @@
 <?php
     // Connection details
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $databaseName = "dbrown31_moviezone_db";
+    include 'database_settings.inc';    // Edit database_settings.inc to change database settings
     
     // Connect to database
     $dataConnection = new mysqli($servername, $username, $password, $databaseName);
@@ -12,10 +9,7 @@
     if ($dataConnection->connect_error) {
         die("Error connecting to database: " . $dataConnection->connect_error);
     }
-    
-    // Connected successfully
-    echo "connected to database!<br>";
-    
+
     // Query all movies from 2014 up
     $query =    "SELECT * FROM movie 
                 INNER JOIN genre 
@@ -28,8 +22,11 @@
     $result = $dataConnection->query($query);
     
     
-    // Loop through all grows
+    // Uf result found
     if ($result->num_rows > 0) {
+        // Print number of results
+        echo '<div id="resultsTag">Showing '.$result->num_rows.' results....</div>';
+        // Loop through each row
         while ($row = $result->fetch_assoc()) {
             // Get an array of actors
             $actors = getActors($row['movie_id'], $dataConnection);
