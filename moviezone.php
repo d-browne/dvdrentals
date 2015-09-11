@@ -27,7 +27,7 @@
         case "actor":
             // Code to display search by actor
             $pageTitle = "Search by Actor";                 // Set page title
-            $includeFileName = "search_actor.inc";          // Include name
+            $includeFileName = "actor.inc";          // Include name
             break;
         case "genre":
             // Code to display search by genre
