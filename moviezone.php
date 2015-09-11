@@ -2,6 +2,13 @@
     // start session
     session_start();
     
+    // Session variable to track number of movies in cart
+    if (!isset($_SESSION['numberInCart'])) {
+        $_SESSION['numberInCart'] = 0;
+    }
+    if (!isset($_SESSION['cartMovies'])) {
+        $_SESSION['cartMovies'] = [];
+    }
     // Check for search string
     if (!isset($_GET['search']))
     {
@@ -105,7 +112,16 @@
 		<div id="centerColumn">
 			
 			<div class="section">
-				<h2 id="mainHeader">Movie Zone - <?php echo $pageTitle; ?></h2>
+				<h2 id="mainHeader">Movie Zone - <?php echo $pageTitle; ?>
+                                    <?php
+                                        // If logged in display cart
+                                        if ($_SESSION['isLoggedIn']) {
+                                           echo '<a id="cartLink" href="booking.php">';
+                                            echo '<div id="cartDiv"><span id="cartItems">'.$_SESSION['numberInCart'].'</span><img src="images/cartIcon.png" alt="cart" width="27"/></div>';
+                                            echo '</a>'; 
+                                        }
+                                    ?>
+                                </h2>
                 
                 <div id="moviezoneOptionsbar">
                 	<a href="moviezone.php?search=all_movies">

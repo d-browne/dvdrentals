@@ -55,7 +55,10 @@
             echo '<div class="movieInfoField"><label>Availability:</label> DVD - '.$row['numDVD'].'   BluRay - '.$row['numBluRay'].'</div>';
             // If logged in add cart button
             if ($_SESSION['isLoggedIn']) {
-                echo '<form><input class="movieButton" type="submit" value="Add to Cart" /></form>';
+                echo '<form action="booking.php" method="post">';
+                echo '<input type="hidden" name="movie_id" value="'.$row['movie_id'].'" />'; // Hidden field to contain name of movie
+                echo '<input class="movieButton" type="submit" value="Add to Cart" />'
+                echo '</form>';
             }
             
             echo '</fieldset>';
