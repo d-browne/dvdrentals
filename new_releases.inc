@@ -51,6 +51,44 @@
             echo '<div class="movieInfoField"><label>Rental:</label> DVD - $'.$row['DVD_rental_price'].'  BluRay - $'.$row['BluRay_rental_price'].'</div>';
             echo '<div class="movieInfoField"><label>Purchase:</label> DVD - $'.$row['DVD_purchase_price'].'  BluRay - $'.$row['BluRay_purchase_price'].'</div>';
             echo '<div class="movieInfoField"><label>Availability:</label> DVD - '.$row['numDVD'].'   BluRay - '.$row['numBluRay'].'</div>';
+            // If logged in add cart button
+            if ($_SESSION['isLoggedIn']) {
+                echo '<form action="booking.php" method="post">';
+                echo '<input type="hidden" name="title" value="'.$row['title'].'" />'; // Hidden field to contain title of movie
+                echo '<input type="hidden" name="movie_id" value="'.$row['movie_id'].'" />'; // Hidden field to contain id of movie
+                // Check if movie already in cart
+                if (in_array($row['movie_id'], $_SESSION['cartMovies'])) {
+                    echo '<input class="movieButtonOut" name="book" type="submit" disabled="" value="In Cart" />';
+                } else {
+                    // Check if cart is not full
+                    if (!($_SESSION['numberInCart'] >= 5)) {
+                            // Check if in stock
+                            if ($row['numDVD'] > 0 || $row['numBluRay'] > 0) {
+                                // Check if both dvd and blueray in stock
+                                if ($row['numDVD'] > 0 and $row['numBluRay'] > 0) {
+                                    echo '<input class="movieButton" name="book" type="submit" value="Add to Cart" />';
+                                }
+                                // Check if dvd in stock but blueray out
+                                if ($row['numDVD'] > 0 and $row['numBluRay'] == 0) {
+                                    echo '<input class="movieButton" name="book" type="submit" value="Only DVD" />';
+                                }
+                                // Check if BluRay in stock but dvd out
+                                if ($row['numDVD'] == 0 and $row['numBluRay'] > 0) {
+                                    echo '<input class="movieButton" name="book" type="submit" value="Only BluRay" />';
+                                }
+                        } else {
+                            echo '<input class="movieButtonOut" name="book" type="submit" disabled="" value="Out" />';
+                        }
+                    } else {
+                        echo '<input class="movieButtonOut" name="book" type="submit" disabled="" value="Cart Full" />';
+                    }
+                }
+                
+                
+                
+                echo '</form>';
+            }
+            
             echo '</fieldset>';
             echo '</div>';
         }   
