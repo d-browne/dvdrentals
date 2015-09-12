@@ -587,7 +587,7 @@ label
 }
 
 .controlPanelSection label {
-	width: 9em;
+	width: 10em;
 	text-align: right;
 	font-weight: bold;
 }
@@ -641,4 +641,8 @@ label
 
 #BluRayFieldSet {
 	margin-top: .5em;
+}
+
+#starMeaning {
+	text-align: right;
 }

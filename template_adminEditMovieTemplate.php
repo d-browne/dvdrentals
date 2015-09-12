@@ -103,10 +103,10 @@
                         <fieldset>
                             <legend>Stock Information</legend>
                             <div class="memberDetailsField"><label>Rental Period: </label>
-                                <select name="contactmethod">
+                                <select name="rental_period">
                                     <option value="3 Day">3 Day</option>
-                                    <option value="Weekly">Lanline</option>
-                                    <option value="Overnight">Mobile</option>
+                                    <option value="Weekly">Weekly</option>
+                                    <option value="Overnight">Overnight</option>
                                 </select>
                             </div>
                             <fieldset>
