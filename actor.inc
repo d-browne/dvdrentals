@@ -12,9 +12,8 @@
         die("Error connecting to database: " . $dataConnection->connect_error);
     }
     
-    // Check if actor is not specified in get request
-    if (!isset($_GET['actor_name']))  {
-        // Get actors and id's and put them in array
+    
+    // Get actors and id's and put them in array
         $actors = getActors($dataConnection);
         
         // Create form to submit actor name
@@ -22,6 +21,7 @@
         echo '<input type="hidden" name="search" value="actor" />';
         // Create select box to hold actor names
         echo '<select name="actor_name">';
+        echo '<option selected="" disabled="" value="">Select actor...</option>';
         // Loop through each actor in array and populate select box
         foreach ($actors as $id=>$name) {
             echo '<option value="'.$name.'">'.$name.'</option>';
@@ -29,12 +29,12 @@
         echo '</select>'; // Closing tag for select box
         echo '<input type="submit" value="Search" />'; // Submit button for form
         echo '</form>'; // closing tag for form
-        
-        // Create a list of actors
-    } else {
+    
+   
+    if (isset($_GET['actor_name']))  {
         // Show movies of selected actor
         showMoviesByActor($_GET['actor_name'], $dataConnection); // call function to show movies based on actor name
-    }
+    } 
     
     // Function to return an array of actors
     function getActors($dataConnection) {
