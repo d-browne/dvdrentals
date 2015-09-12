@@ -17,7 +17,12 @@
                     $_SESSION['adminLoggedIn'] = false;
                     header('Location: admin.php');
                     die(); // Terminate script execution
-                break;
+                    break;
+                case 'edit_user':
+                    $includeFileName = 'admin_edit_user.inc';
+                    $pageTitle = "Control Panel - Edit user";
+                    break;
+                
                 
             }
         } else {
