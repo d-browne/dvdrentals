@@ -53,7 +53,7 @@
         // Query database for username
         $query = "SELECT * FROM member WHERE username = '".$_GET['member_username']."'";
         $result = $dataConnection->query($query);
-        
+      
         // Check if username matches a member in the database
         if ($result->num_rows > 0)
         {

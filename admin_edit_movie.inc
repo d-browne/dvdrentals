@@ -43,3 +43,26 @@
         <input type="submit" value="Edit Movie">
     </form>
 </div>
+
+<?php
+    // Check if get request with movie_title recieved
+    if (isset($_GET['movie_title']))
+    {
+        // Query database for movie
+        $query = "SELECT * FROM movie WHERE title = '".$_GET['movie_title']."'";
+        // Execute query
+        $result = $dataConnection->query($query);
+
+        // Check if movie is in database
+        if ($result->num_rows > 0)
+        {
+            // Display edit movie page body
+            include 'admin_edit_movie_body.inc"';
+        }
+        else
+        {
+            echo '<div id="resultsTag">There are no movie titled '.$_GET['movie_title'].' in the database...</div>';
+        }
+    }
+
+?>
