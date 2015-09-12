@@ -1,18 +1,3 @@
-<?php
-    // Include user session globals
-    include 'user_session_globals.inc';
-    
-    // If not logged in display admin login page
-    if (!$_SESSION['adminLoggedIn']) {
-        $includeFileName = 'admin_login.inc';
-        $pageTitle = "Login";
-    }
-    
-    // Check if login 
-    
-    
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,16 +48,12 @@
 		<div id="centerColumn">
 			
 			<div class="section">
-				<h2 id="mainHeader">Admin - <?php echo $pageTitle; ?>
-                                    <?php
-                                        // If logged in display cart
-                                        if ($_SESSION['isLoggedIn']) {
-                                           echo '<a id="cartLink" href="booking.php">';
-                                            echo '<div id="cartDiv"><span id="cartItems">'.$_SESSION['numberInCart'].'</span><img src="images/cartIcon.png" alt="cart" width="27"/></div>';
-                                            echo '</a>'; 
-                                        }
-                                    ?>
-                                </h2>
+				<h2 id="mainHeader">
+                	Admin - Control Panel
+                    <a id="cartLink" href="booking.php">
+                    	<div id="cartDiv"><span id="cartItems">1</span><img src="images/cartIcon.png" alt="cart" width="27"/></div>
+                    </a>
+                </h2>
                 
                 <div id="moviezoneOptionsbar">
                 	<a href="moviezone.php?search=all_movies">
@@ -93,18 +74,48 @@
                     <a href="moviezone.php?search=classification">
                     	<div class="moviezoneOptionButton">By Classification</div>
                     </a>
-                    <a href="booking.php<?php if ($_SESSION['isLoggedIn']) { echo '?logout';} ?>"> 
-                        <div class="moviezoneUserOptionButton"><?php if ($_SESSION['isLoggedIn']) { echo 'Logout';} else { echo 'Login'; } ?></div>
-                    </a>
-                    <a href="admin.php">
-                        <div class="moviezoneUserOptionButton">Admin</div>
-                    </a>
+                    <div class="moviezoneUserOptionButton">Login</div>
+                    <div class="moviezoneUserOptionButton">Admin</div>
                 </div>
                 
                 <div id="moviesBox">
-                    <?php
-                        include $includeFileName;
-                    ?>
+                <h2>Welcome admin</h2>
+                <div id="adminControlBox">
+                	<fieldset id="adminControlsFieldSet">
+                    	<legend>Admin Controls</legend>
+                        <div class="adminControl" id="editUserControl">
+                        	<a href="admin.php?editUser">
+                        		<img src="images/adminIcons/editUserIcon.png" alt="Edit/Remove Member" />
+                                <div class="adminControlCaption">Edit/Remove Member</div>
+                            </a>
+                        </div>
+                        <div class="adminControl" id="editUserControl">
+                        	<a href="join.html">
+                        		<img src="images/adminIcons/createUserIcon.png" alt="Edit/Remove Member" />
+                                <div class="adminControlCaption">New user</div>
+                            </a>
+                        </div>
+                        <div class="adminControl" id="editUserControl">
+                        	<a href="admin.php?newMovie">
+                        		<img src="images/adminIcons/newMovieIcon.png" alt="Edit/Remove Member" />
+                                <div class="adminControlCaption">New Movie</div>
+                            </a>
+                        </div>
+                        <div class="adminControl" id="editUserControl">
+                        	<a href="admin.php?editMovie">
+                        		<img src="images/adminIcons/editMovieIcon.png" alt="Edit/Remove Member" />
+                                <div class="adminControlCaption">Edit/Remove Movie</div>
+                            </a>
+                        </div>
+                        <div class="adminControl" id="editUserControl">
+                        	<a href="admin.php?logout">
+                        		<img src="images/adminIcons/logoutIcon.png" alt="Edit/Remove Member" />
+                                <div class="adminControlCaption">Logout of control panel</div>
+                            </a>
+                        </div>
+                    </fieldset>
+                </div>
+                   
                 </div>
 			</div>
 

@@ -497,3 +497,30 @@ label
 	font-size: large;
 	color: #FFAA64;
 }
+
+#adminControlBox {
+	
+}
+
+.adminControl {
+	display: inline-block;
+	text-align: center;
+	margin-right: 1em;
+}
+
+.adminControl a {
+	font-style: normal;
+	color: #9B4600;
+}
+.adminControl a:hover {
+	color: #C65A00;
+}
+
+#adminControlsFieldSet {
+	border: 1px solid #B90021;
+}
+#adminControlsFieldSet legend{
+	color: #B90021;
+	font-weight: bold;
+	font-style:italic;
+}

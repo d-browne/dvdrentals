@@ -14,4 +14,9 @@
     if (!isset($_SESSION['cartMovies'])) {
         $_SESSION['cartMovies'] = array();
     }
+    
+    // Initialize admin logged in variable to false
+    if (!isset($_SESSION['adminLoggedIn'])) {
+        $_SESSION['adminLoggedIn'] = false;
+    }
 ?>
