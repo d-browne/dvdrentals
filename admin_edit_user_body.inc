@@ -1,6 +1,7 @@
 <?php
     $member = $result->fetch_assoc(); // Get row data to variable member
     
+    // Put button processing code here
 ?>
 
 <form action="admin.php?action=edit_user&member_username=<?php echo $member['username'] ?>" method="POST">

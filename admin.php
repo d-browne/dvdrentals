@@ -20,9 +20,12 @@
                     break;
                 case 'edit_user':
                     $includeFileName = 'admin_edit_user.inc';
-                    $pageTitle = "Control Panel - Edit user";
+                    $pageTitle = "Control Panel - Edit User";
                     break;
-                
+                case 'edit_movie': 
+                    $includeFileName = 'admin_edit_movie.inc';
+                    $pageTitle = "Control Panel - Edit Movie";
+                    break;
                 
             }
         } else {
