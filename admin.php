@@ -6,11 +6,26 @@
     if (!$_SESSION['adminLoggedIn']) {
         $includeFileName = 'admin_login.inc';
         $pageTitle = "Login";
+    } else {
+        // Display relevant admin page
+        // Check if admin action specified
+        if (isset($_GET['action'])) {
+            // Perform action specified
+            switch ($_GET['action']) {
+                case 'logout':
+                    // Log admin out
+                    $_SESSION['adminLoggedIn'] = false;
+                    header('Location: admin.php');
+                    die(); // Terminate script execution
+                break;
+                
+            }
+        } else {
+            // Display admin control panel
+            $includeFileName = 'admin_control_panel.inc';
+            $pageTitle = "Control Panel";
+        }
     }
-    
-    // Check if login 
-    
-    
 ?>
 
 <!DOCTYPE html>

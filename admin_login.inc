@@ -5,7 +5,13 @@
     if (isset($_POST['submit'])) {
         // Check if password matches 
         if ($_POST['password'] == $adminPassword) {
-            echo '<div id="loginMessage">Login Successful!</div>';
+            // Set admin logged in session variable to true
+            $_SESSION['adminLoggedIn'] = true;
+            // Set admin username in session
+            $_SESSION['adminUserName'] = $_POST['userName'];
+            // Reload admin section
+            header('Location: admin.php');
+            die(); // Terminate script execution
         } else
         {
             echo '<div id="loginMessage">Invalid admin password...</div>';
