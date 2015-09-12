@@ -62,7 +62,7 @@
                 </div>
                 
                 <div id="moviesBox">
-                	<div id="resultsTag">Showing 10 results</div>
+                	<div id="resultsTag">Showing 10 results....</div>
                 	<div class="movieFieldSetContainer">
                         <fieldset class="movieFieldSet">
                             <legend>Captain America: The Winter Soilder</legend>

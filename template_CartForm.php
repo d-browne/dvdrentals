@@ -79,7 +79,8 @@
                 </div>
                 
                 <div id="moviesBox">
-                	<div id="cartInformation">3/5 Items in cart! - Warning this module currently under construction and there is no facility to check out yet.</div>
+                	<div id="cartInformation">3/5 Items in cart! - Warning this module currently under construction and there is no facility to check out yet.
+                    <br/><a href="booking.php?clear">Clear</a></div>
                 	<div class="movieFieldSetContainer">
                         <fieldset class="movieFieldSet">
                             <legend>Captain America: The Winter Soilder</legend>
