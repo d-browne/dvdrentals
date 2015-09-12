@@ -50,7 +50,22 @@
     // Check if GET request submitted with member_username
     if (isset($_GET['member_username']))
     {
-        // Display page body
-        echo 'page for ' . $_GET['member_username'];
+        // Query database for username
+        $query = "SELECT * FROM member WHERE username = '".$_GET['member_username']."'";
+        $result = $dataConnection->query($query);
+        
+        // Check if username matches a member in the database
+        if ($result->num_rows > 0)
+        {
+            // Display page body
+            include 'admin_edit_user_body.inc';
+        }
+        else
+        {
+            // Display error
+            echo '<div id="resultsTag">No user named '.$_GET['member_username'].' in the database...</div>';
+        }
+        
+        
     }
 ?>
