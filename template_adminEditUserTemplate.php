@@ -93,22 +93,22 @@
                     <div class="controlPanelSection">
                         <fieldset>
                             <legend>Member ID: 22</legend>
-                            <div class="memberDetailsField"><label>Surname: </label><input type="text" value="Armstrong" /></div>
-                            <div class="memberDetailsField"><label>Other Names: </label><input type="text" value="Bruce" /></div>
-                            <div class="memberDetailsField"><label>Username: </label><input type="text" value="BruceA" disabled/></div>
-                            <div class="memberDetailsField"><label>Password: </label><input type="text" value="#1Bruce" /></div>
+                            <div class="memberDetailsField"><label>Surname: </label><input type="text" name="surname" /></div>
+                            <div class="memberDetailsField"><label>Other Names: </label><input type="text" name="othername" /></div>
+                            <div class="memberDetailsField"><label>Username: </label><input type="text" name="joinusername" disabled/></div>
+                            <div class="memberDetailsField"><label>Password: </label><input type="text" name="userpass" /></div>
                             <div class="memberDetailsField"><label>Occupation: </label>
-                                <select>
-                                    <option>Student</option>
-                                    <option>Manager</option>
-                                    <option>Medical Worker</option>
-                                    <option>Trades Worker</option>
-                                    <option>Education</option>
-                                    <option>Technician</option>
-                                    <option>Clerical Worker</option>
-                                    <option>Retail Worker</option>
-                                    <option>Researcher</option>
-                                    <option>Other...</option>
+                                <select name="occupation">
+                                    <option value="Student">Student</option>
+                                   <option value="Manager">Manager</option>
+                                   <option value="Healthcare">Medical worker</option>
+                                   <option value="Trades">Trades worker</option>
+                                   <option value="Educator">Education</option>
+                                   <option value="Technician">Technician</option>
+                                   <option value="Clerical">Clerical worker</option>
+                                   <option value="Retail">Retail worker</option>
+                                   <option value="Researcher">Researcher</option>
+                                   <option value="Other">Other</option>
                                 </select>
                             </div>
                             <div class="memberDetailsField"><label>Join date: </label><input type="text" value="2015-07-06" disabled/></div>
@@ -118,24 +118,24 @@
                         <fieldset>
                             <legend>Contact Details</legend>
                             <div class="memberDetailsField"><label>Contact Method: </label>
-                                <select>
-                                    <option>Email</option>
-                                    <option>Lanline</option>
-                                    <option>Mobile</option>
+                                <select name="contactmethod">
+                                    <option value="email">Email</option>
+                                    <option value="landline">Lanline</option>
+                                    <option value="mobile">Mobile</option>
                                 </select>
                             </div>
-                            <div class="memberDetailsField"><label>Email: </label><input type="email" value="bruce.armstrong@scu.edu.au" /></div>
-                            <div class="memberDetailsField"><label>Landline: </label><input type="text" value="" /></div>
-                            <div class="memberDetailsField"><label>Mobile: </label><input type="text" value="" /></div>
+                            <div class="memberDetailsField"><label>Email: </label><input type="email" name="email" /></div>
+                            <div class="memberDetailsField"><label>Landline: </label><input type="text" name="phonenum" /></div>
+                            <div class="memberDetailsField"><label>Mobile: </label><input type="text" name="mobilenum" /></div>
                         </fieldset>
                     </div>
                     <div class="controlPanelSection">
                         <fieldset>
                             <legend>Magazine</legend>
-                            <div class="memberDetailsField"><label>Email: </label><input type="checkbox" checked/ ></div>
-                            <div class="memberDetailsField"><label>Street Address: </label><input type="text" value="" /></div>
-                            <div class="memberDetailsField"><label>Suburb and State: </label><input type="text" value="" /></div>
-                            <div class="memberDetailsField"><label>Postcode: </label><input type="text" value="" /></div>
+                            <div class="memberDetailsField"><label>Recieve Magazine: </label><input type="checkbox" name="magazine" checked/ ></div>
+                            <div class="memberDetailsField"><label>Street Address: </label><input type="text" name="streetaddr" /></div>
+                            <div class="memberDetailsField"><label>Suburb and State: </label><input type="text" name="suburbstate" /></div>
+                            <div class="memberDetailsField"><label>Postcode: </label><input type="text" name="postcode" /></div>
                         </fieldset>
                     </div>
                 </form>
