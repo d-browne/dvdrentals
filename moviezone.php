@@ -138,7 +138,9 @@
                     <a href="booking.php<?php if ($_SESSION['isLoggedIn']) { echo '?logout';} ?>"> 
                         <div class="moviezoneUserOptionButton"><?php if ($_SESSION['isLoggedIn']) { echo 'Logout';} else { echo 'Login'; } ?></div>
                     </a>
-                    <div class="moviezoneUserOptionButton">Admin</div>
+                    <a href="admin.php">
+                        <div class="moviezoneUserOptionButton">Admin</div>
+                    </a>
                 </div>
                 
                 <div id="moviesBox">
