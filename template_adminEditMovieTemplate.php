@@ -79,67 +79,54 @@
                 </div>
                 
                 <div id="moviesBox">
-                	<h2 id="controlPanelHeading">Edit/Remove Member</h2>
+                	<h2 id="controlPanelHeading">Edit/Remove Movie</h2>
                     <div id="editObjectSelectBox">
                         <form id="editObjectSelectForm">
-                            <select>
-                                <option disabled="" selected="" value="">Select member...</option>
-                                <option>John Doe</option>
+                            <select name="movie_title">
+                                <option disabled="" selected="" value="">Select movie...</option>
+                                <option>Titanic</option>
                             </select>
-                            <input type="submit" value="Edit Member">
+                            <input type="submit" value="Edit Movie">
                         </form>
                     </div>
                     <form>
                     <div class="controlPanelSection">
                         <fieldset>
-                            <legend>Member ID: 22</legend>
-                            <div class="memberDetailsField"><label>Surname: </label><input type="text" name="surname" /></div>
-                            <div class="memberDetailsField"><label>Other Names: </label><input type="text" name="othername" /></div>
-                            <div class="memberDetailsField"><label>Username: </label><input type="text" name="joinusername" disabled/></div>
-                            <div class="memberDetailsField"><label>Password: </label><input type="text" name="userpass" /></div>
-                            <div class="memberDetailsField"><label>Occupation: </label>
-                                <select name="occupation">
-                                    <option value="Student">Student</option>
-                                   <option value="Manager">Manager</option>
-                                   <option value="Healthcare">Medical worker</option>
-                                   <option value="Trades">Trades worker</option>
-                                   <option value="Educator">Education</option>
-                                   <option value="Technician">Technician</option>
-                                   <option value="Clerical">Clerical worker</option>
-                                   <option value="Retail">Retail worker</option>
-                                   <option value="Researcher">Researcher</option>
-                                   <option value="Other">Other</option>
-                                </select>
-                            </div>
-                            <div class="memberDetailsField"><label>Join date: </label><input type="text" value="2015-07-06" disabled/></div>
+                            <legend>Movie Information:</legend>
+                            <div class="memberDetailsField"><label>Movie ID: </label><input type="text" name="movid_id" disabled/></div>
+                            <div class="memberDetailsField"><label>Title: </label><input type="text" name="movie_title" disabled/></div>
+                            <div class="memberDetailsField"><label>Year: </label><input type="text" name="movie_year" disabled/></div>
+                            <div class="memberDetailsField"><label>Tag Line: </label><input type="text" name="movie_tagline" disabled/></div>
                         </fieldset>
                     </div>
                     <div class="controlPanelSection">
                         <fieldset>
-                            <legend>Contact Details</legend>
-                            <div class="memberDetailsField"><label>Contact Method: </label>
+                            <legend>Stock Information</legend>
+                            <div class="memberDetailsField"><label>Rental Period: </label>
                                 <select name="contactmethod">
-                                    <option value="email">Email</option>
-                                    <option value="landline">Lanline</option>
-                                    <option value="mobile">Mobile</option>
+                                    <option value="3 Day">3 Day</option>
+                                    <option value="Weekly">Lanline</option>
+                                    <option value="Overnight">Mobile</option>
                                 </select>
                             </div>
-                            <div class="memberDetailsField"><label>Email: </label><input type="email" name="email" /></div>
-                            <div class="memberDetailsField"><label>Landline: </label><input type="text" name="phonenum" /></div>
-                            <div class="memberDetailsField"><label>Mobile: </label><input type="text" name="mobilenum" /></div>
-                        </fieldset>
-                    </div>
-                    <div class="controlPanelSection">
-                        <fieldset>
-                            <legend>Magazine</legend>
-                            <div class="memberDetailsField"><label>Recieve Magazine: </label><input type="checkbox" name="magazine" checked/ ></div>
-                            <div class="memberDetailsField"><label>Street Address: </label><input type="text" name="streetaddr" /></div>
-                            <div class="memberDetailsField"><label>Suburb and State: </label><input type="text" name="suburbstate" /></div>
-                            <div class="memberDetailsField"><label>Postcode: </label><input type="text" name="postcode" /></div>
+                            <fieldset>
+                            	<legend>DVD</legend>
+                                <div class="memberDetailsField"><label>Rental Price: </label><input type="text" name="dvd_rental_price" /></div>
+                                <div class="memberDetailsField"><label>Purchase Price: </label><input type="text" name="dvd_purchase_price" /></div>
+                                <div class="memberDetailsField"><label>In-Stock: </label><input type="text" name="numDVD" /></div>
+                                <div class="memberDetailsField"><label>Rented out: </label><input type="text" name="outDVD" /></div>
+                            </fieldset>
+                            <fieldset id="BluRayFieldSet">
+                            	<legend>BluRay</legend>
+                                <div class="memberDetailsField"><label>Rental Price: </label><input type="text" name="bluray_rental_price" /></div>
+                                <div class="memberDetailsField"><label>Purchase Price: </label><input type="text" name="bluray_purchase_price" /></div>
+                                <div class="memberDetailsField"><label>In-Stock: </label><input type="text" name="numBluRay" /></div>
+                                <div class="memberDetailsField"><label>Rented out: </label><input type="text" name="numBluRayOut" /></div>
+                            </fieldset>
                         </fieldset>
                     </div>
                 </form>
-                <input type="submit" class="controlPanelButton" value="Remove User" /><input type="submit" class="controlPanelButton" value="Update User" />
+                <input type="submit" class="controlPanelButton" name="submit_delete" value="Remove Movie" /><input type="submit" class="controlPanelButton" name="submit_update" value="Update Movie" />
                 </div>
 			</div>
 
