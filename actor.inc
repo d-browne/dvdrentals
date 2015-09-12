@@ -40,7 +40,7 @@
     function getActors($dataConnection) {
         $query = "SELECT * from actor";             // SQL query to get actors
         $result = $dataConnection->query($query);   // Result of query
-        $actors = [];                               // Array to hold actors
+        $actors = array();                               // Array to hold actors
         
         // If there are reslts
         if ($result->num_rows > 0) {
@@ -159,7 +159,7 @@
     function getMovieActors($movie_id, $dataConnecton) {
         $query = "SELECT * FROM movie_actor_view WHERE movie_id = " . $movie_id; 
         $result = $dataConnecton->query($query);
-        $actors = []; // Array to hold actor names
+        $actors = array(); // Array to hold actor names
         
         // loop through results add directors to array
         if ($result->num_rows > 0) {

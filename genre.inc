@@ -128,7 +128,7 @@
         $result = $dataConnection->query($query);
         
         // Put query reults in array
-        $genres = [];
+        $genres = array();
         // check if result from query found
         if ($result->num_rows > 0) {
             // Loop through each result
@@ -144,7 +144,7 @@
     function getActors($movie_id, $dataConnecton) {
         $query = "SELECT * FROM movie_actor_view WHERE movie_id = " . $movie_id; 
         $result = $dataConnecton->query($query);
-        $actors = []; // Array to hold actor names
+        $actors = array(); // Array to hold actor names
         
         // loop through results add directors to array
         if ($result->num_rows > 0) {

@@ -127,7 +127,7 @@
         // Execute query
         $result = $dataConnection->query($query);
         // Create array to store classifications
-        $classifications = [];
+        $classifications = array();
         
         // check if results > 0
         if ($result->num_rows > 0) {
@@ -143,7 +143,7 @@
     function getActors($movie_id, $dataConnecton) {
         $query = "SELECT * FROM movie_actor_view WHERE movie_id = " . $movie_id; 
         $result = $dataConnecton->query($query);
-        $actors = []; // Array to hold actor names
+        $actors = array(); // Array to hold actor names
         
         // loop through results add directors to array
         if ($result->num_rows > 0) {

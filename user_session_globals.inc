@@ -12,6 +12,6 @@
     }
     
     if (!isset($_SESSION['cartMovies'])) {
-        $_SESSION['cartMovies'] = [];
+        $_SESSION['cartMovies'] = array();
     }
 ?>

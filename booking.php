@@ -12,7 +12,7 @@
     // Check if clear GET request recieved
     if (isset($_GET['clear'])) {
         // Clear cart
-        $_SESSION['cartMovies'] = [];
+        $_SESSION['cartMovies'] = array();
         $_SESSION['numberInCart'] = count($_SESSION['cartMovies']);
     }
     
