@@ -85,31 +85,31 @@
                     	<legend>Admin Controls</legend>
                         <div class="adminControl" id="editUserControl">
                         	<a href="admin.php?editUser">
-                        		<img src="images/adminIcons/editUserIcon.png" alt="Edit/Remove Member" />
+                        		<div class="adminControlIcon" id="editUserIcon"></div>
                                 <div class="adminControlCaption">Edit/Remove Member</div>
                             </a>
                         </div>
-                        <div class="adminControl" id="editUserControl">
+                        <div class="adminControl" id="addUserControl">
                         	<a href="join.html">
-                        		<img src="images/adminIcons/createUserIcon.png" alt="Edit/Remove Member" />
+                        		<div class="adminControlIcon" id="addUserIcon"></div>
                                 <div class="adminControlCaption">New user</div>
                             </a>
                         </div>
-                        <div class="adminControl" id="editUserControl">
+                        <div class="adminControl" id="addMovieControl">
                         	<a href="admin.php?newMovie">
-                        		<img src="images/adminIcons/newMovieIcon.png" alt="Edit/Remove Member" />
+                        		<div class="adminControlIcon" id="addMovieIcon"></div>
                                 <div class="adminControlCaption">New Movie</div>
                             </a>
                         </div>
-                        <div class="adminControl" id="editUserControl">
+                        <div class="adminControl" id="editMovieControl">
                         	<a href="admin.php?editMovie">
-                        		<img src="images/adminIcons/editMovieIcon.png" alt="Edit/Remove Member" />
+                        		<div class="adminControlIcon" id="editMovieIcon"></div>
                                 <div class="adminControlCaption">Edit/Remove Movie</div>
                             </a>
                         </div>
-                        <div class="adminControl" id="editUserControl">
+                        <div class="adminControl" id="logoutUserControl">
                         	<a href="admin.php?logout">
-                        		<img src="images/adminIcons/logoutIcon.png" alt="Edit/Remove Member" />
+                        		<div class="adminControlIcon" id="logoutIcon"></div>
                                 <div class="adminControlCaption">Logout of control panel</div>
                             </a>
                         </div>

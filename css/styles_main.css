@@ -524,3 +524,45 @@ label
 	font-weight: bold;
 	font-style:italic;
 }
+
+.adminControlIcon {
+	width: 128px;
+	height: 128px;
+	margin: auto;
+}
+
+/* control panel icons */
+#editUserIcon {
+	background-image: url('../images/adminIcons/editUserIcon.png');
+}
+#editUserIcon:hover {
+	background-image: url('../images/adminIcons/editUserIconMo.png');
+}
+
+#addUserIcon {
+	background-image: url('../images/adminIcons/createUserIcon.png');
+}
+#addUserIcon:hover {
+	background-image: url('../images/adminIcons/createUserIconMo.png');
+}
+
+#addMovieIcon {
+	background-image: url('../images/adminIcons/newMovieIcon.png');
+}
+#addMovieIcon:hover {
+	background-image: url('../images/adminIcons/newMovieIconMo.png');
+}
+
+#editMovieIcon {
+	background-image: url('../images/adminIcons/editMovieIcon.png');
+}
+#editMovieIcon:hover {
+	background-image: url('../images/adminIcons/editMovieIconMo.png');
+}
+
+#logoutIcon {
+	background-image: url('../images/adminIcons/logoutIcon.png');
+}
+#logoutIcon:hover {
+	background-image: url('../images/adminIcons/logoutIconMo.png');
+}
