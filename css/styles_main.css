@@ -568,7 +568,6 @@ label
 }
 
 .controlPanelSection {
-	border: 1px solid black;
 	margin-bottom: 1em;
 }
 
@@ -588,7 +587,7 @@ label
 }
 
 .controlPanelSection label {
-	width: 8em;
+	width: 9em;
 	text-align: right;
 	font-weight: bold;
 }
@@ -601,5 +600,41 @@ label
 }
 
 .controlPanelSection select {
-	width: 15em;
+	width: 8em;
+}
+
+.warningLabel {
+	color: red;
+	margin-left: 1em;
+}
+
+.memberDetailsField {
+	margin-bottom: .2em;
+}
+
+.controlPanelButton {
+	background-color: #81003F;
+	border-radius: 10px;
+	border: 1px solid white;
+	height: 2em;
+	font-size: large;
+	color: #FFAA64;
+	float:right;
+	margin-left: .3em;
+}
+.controlPanelButton:hover {
+	background-color: #A40050;
+}
+
+/* So Control panel button doesn't overlap */
+#moviesBox {
+	overflow: hidden;
+}
+
+#controlPanelHeading {
+	margin-bottom: 0px;
+}
+
+#editObjectSelectBox {
+	margin-bottom: 1em;
 }

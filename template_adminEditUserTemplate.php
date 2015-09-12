@@ -79,16 +79,17 @@
                 </div>
                 
                 <div id="moviesBox">
-                	<h2>Edit/Delete Member</h2>
+                	<h2 id="controlPanelHeading">Edit/Delete Member</h2>
+                    <div id="editObjectSelectBox">
+                        <form id="editObjectSelectForm">
+                            <select>
+                                <option disabled="" selected="" value="">Select member...</option>
+                                <option>John Doe</option>
+                            </select>
+                            <input type="submit" value="Edit Member">
+                        </form>
+                    </div>
                     <form>
-                    	<select>
-                        	<option disabled="" selected="" value="">Select member...</option>
-                            <option>John Doe</option>
-                        </select>
-                        <input type="submit" value="Edit Member">
-                    </form>
-                </div>
-                <form>
                     <div class="controlPanelSection">
                         <fieldset>
                             <legend>Member ID: 22</legend>
@@ -133,10 +134,13 @@
                             <legend>Magazine</legend>
                             <div class="memberDetailsField"><label>Email: </label><input type="checkbox" checked/ ></div>
                             <div class="memberDetailsField"><label>Street Address: </label><input type="text" value="" /></div>
+                            <div class="memberDetailsField"><label>Suburb and State: </label><input type="text" value="" /></div>
                             <div class="memberDetailsField"><label>Postcode: </label><input type="text" value="" /></div>
                         </fieldset>
                     </div>
                 </form>
+                <input type="submit" class="controlPanelButton" value="Delete User" /><input type="submit" class="controlPanelButton" value="Update User" />
+                </div>
 			</div>
 
 			<footer>
