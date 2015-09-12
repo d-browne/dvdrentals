@@ -566,3 +566,40 @@ label
 #logoutIcon:hover {
 	background-image: url('../images/adminIcons/logoutIconMo.png');
 }
+
+.controlPanelSection {
+	border: 1px solid black;
+	margin-bottom: 1em;
+}
+
+.controlPanelSection fieldset {
+	border: 2px solid white;
+	background-color: #FFD264;
+	border-radius: 10px;
+}
+
+.controlPanelSection fieldset legend {
+	border: 2px solid white;
+	background-color: #FFD264;
+	border-radius: 5px;
+	background: linear-gradient(to right, #F03657 , #B90021);
+	color: #FFD264;
+	font-weight: bold;
+}
+
+.controlPanelSection label {
+	width: 8em;
+	text-align: right;
+	font-weight: bold;
+}
+
+.controlPanelSection input[type="text"] {
+	width: 15em;
+}
+.controlPanelSection input[type="email"] {
+	width: 15em;
+}
+
+.controlPanelSection select {
+	width: 15em;
+}
