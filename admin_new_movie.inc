@@ -324,7 +324,7 @@
                 <div class="memberDetailsField"><label>Rental Price: </label><input type="text" name="dvd_rental_price" /> *</div>
                 <div class="memberDetailsField"><label>Purchase Price: </label><input type="text" name="dvd_purchase_price" /> *</div>
                 <div class="memberDetailsField"><label>In-Stock: </label><input type="text" name="numDVD" /> *</div>
-                <div class="memberDetailsField"><label>Rented out: </label><input type="text" name="outDVD" /> *</div>
+                <div class="memberDetailsField"><label>Rented out: </label><input type="text" name="numDVDout" /> *</div>
             </fieldset>
             <fieldset id="BluRayFieldSet">
                 <legend>BluRay</legend>

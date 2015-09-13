@@ -19,188 +19,243 @@
         $new_first_star = mysqli_real_escape_string($dataConnection, $movieData['new_first_star']);
         $rental_period = mysqli_real_escape_string($dataConnection, $movieData['rental_period']);
         $dvd_rental_price = mysqli_real_escape_string($dataConnection, $movieData['dvd_rental_price']);
+        $dvd_purchase_price = mysqli_real_escape_string($dataConnection, $movieData['dvd_purchase_price']);
         $numDVD = mysqli_real_escape_string($dataConnection, $movieData['numDVD']);
+        $numDVDout = mysqli_real_escape_string($dataConnection, $movieData['numDVDout']);
+        $bluray_rental_price = mysqli_real_escape_string($dataConnection, $movieData['bluray_rental_price']);
+        $bluray_purchase_price = mysqli_real_escape_string($dataConnection, $movieData['bluray_purchase_price']);
+        $numBluRay = mysqli_real_escape_string($dataConnection, $movieData['numBluRay']);
+        $numBluRayOut = mysqli_real_escape_string($dataConnection, $movieData['numBluRayOut']);
         
+        // Variable to make sure all required checks working
+        $all_ok = true;
         
-        // Check valid title is working
+        // Check title
         if (isValidTitle($title))
         {
-            echo '<div id="resultsTag">Title valid</div>';
+            //echo '<div id="resultsTag">Title valid</div>';
         }
         else
         {
-            echo '<div id="resultsTag">Title invalid</div>';
+            echo '<div id="resultsTag">Invalid title - Must not be blank</div>';
+            $all_ok = false;
         }
         
-        // Check if valid year is working
+        // Check year
         if (isValidYear($year))
         {
-            echo '<div id="resultsTag">Year valid</div>';
+            //echo '<div id="resultsTag">Year valid</div>';
         }
         else
         {
-            echo '<div id="resultsTag">Year invalid</div>';
+            echo '<div id="resultsTag">Invalid Year must be 4 digits</div>';
+            $all_ok = false;
         }
         
-        // Check if valid tagline is working
+        // Check tagline
         if (isValidTagline($tagline))
         {
-            echo '<div id="resultsTag">tagline valid</div>';
+            //echo '<div id="resultsTag">tagline valid</div>';
         }
         else
         {
-            echo '<div id="resultsTag">tagline invalid</div>';
+            echo '<div id="resultsTag">Invalid tagline - must be unique and not blank</div>';
+            $all_ok = false;
         }
         
-        // Check if plot is valid
+        // Check plot
         if (isValidPlot($plot))
         {
-            echo '<div id="resultsTag">Plot valid</div>';
+            //echo '<div id="resultsTag">Plot valid</div>';
         }
         else
         {
-            echo '<div id="resultsTag">Plot invalid</div>';
+            echo '<div id="resultsTag">Invalid plot - must not be blank and must be unique</div>';
+            $all_ok = false;
         }
         
-        // Test to check if valid image check working
+        // Check image
         if (isValidPoster($poster))
         {
-            echo '<div id="resultsTag">Image valid</div>';
+            //echo '<div id="resultsTag">Image valid</div>';
         }
         else
         {
-            echo '<div id="resultsTag">Image Invalid</div>';
+            echo '<div id="resultsTag">Invalid image - Must be an image format and under 2MB</div>';
+            $all_ok = false;
         }
         
-        // Test to check if valid director selected
-        if (isValidDirector($director))
+        // Check Director
+        if (isValidDirector($director) || isValidNewDirector($new_director))
         {
-            echo '<div id="resultsTag">Director valid</div>';
+            //echo '<div id="resultsTag">Director valid</div>';
         }
         else
         {
-            echo '<div id="resultsTag">Director invalid</div>';
+            echo '<div id="resultsTag">Invalid director - You must select an existing director or specify a new one</div>';
+            $all_ok = false;
         }
         
-        // Test to check if new_director test is working
-        if (isValidNewDirector($new_director))
-        {
-            echo '<div id="resultsTag">New Director valid</div>';
-        }
-        else
-        {
-            echo '<div id="resultsTag">New Director Invalid</div>';
-        }
         
-        // Test to check if valid stuio function working
-        if (isValidStudio($studio))
+        // Check studio
+        if (isValidStudio($studio) || isValidNewStudio($new_studio))
         {
-            echo '<div id="resultsTag">Valid studio</div>';
+            //echo '<div id="resultsTag">Valid studio</div>';
         }
         else
         {
-            echo '<div id="resultsTag">Invalid studio</div>';
-        }
-        
-        // Check if valid new studio function working
-        if (isValidNewStudio($new_studio))
-        {
-            echo '<div id="resultsTag">Valid New studio</div>';
-        }
-        else
-        {
-            echo '<div id="resultsTag">Invalid New studio</div>';
+            echo '<div id="resultsTag">Invalid studio - Must specify a studio or specify a new one</div>';
+            $all_ok = false;
         }
         
         // Check if valid genre
-        if (isValidGenre($genre))
+        if (isValidGenre($genre) || isValidNewGenre($new_genre))
         {
-            echo '<div id="resultsTag">Valid genre</div>';
+            //echo '<div id="resultsTag">Valid genre</div>';
         }
         else
         {
-            echo '<div id="resultsTag">Invalid Genre</div>';
+            echo '<div id="resultsTag">Invalid Genre - select a genre or speicfy a new one</div>';
+            $all_ok = false;
         }
-        
-        // Test if new genre is valid
-        if (isValidNewGenre($new_genre))
-        {
-            echo '<div id="resultsTag">Valid new genre</div>';
-        }
-        else
-        {
-            echo '<div id="resultsTag">Invalid new genre</div>';
-        }
-        
+
         // Test if selected classification is valid
-        if (isValidClassification($classification))
+        if (isValidClassification($classification) || isValidNewClassification($new_classification))
         {
-            echo '<div id="resultsTag">Classification is valid</div>';
+            //echo '<div id="resultsTag">Classification is valid</div>';
         }
         else
         {
-            echo '<div id="resultsTag">Classification is invalid</div>';
+            echo '<div id="resultsTag">Invalid classification - select a classification or specify a new one</div>';
+            $all_ok = false;
         }
         
-        // Test to check if new classification is valid
-        if (isValidNewClassification($new_classification))
-        {
-            echo '<div id="resultsTag">New Classification is valid</div>';
-        }
-        else
-        {
-            echo '<div id="resultsTag">New Classification is invalid</div>';
-        }
         
         // Test to see if selected first star is a valid actor
-        if (isValidActor($first_star))
-        {
-            echo '<div id="resultsTag">selected first star is a valid actor</div>';
-        }
-        else
-        {
-            echo '<div id="resultsTag">selected first star is NOT a valid actor</div>';
-        }
-        
-        // Test to see if new first star is valid
-        if (isValidNewActor($new_first_star))
-        {
-            echo '<div id="resultsTag">New First start is valid!</div>';
-        }
-        else
-        {
-            echo '<div id="resultsTag">New First start is invalid!</div>';
-        }
+//        if (isValidActor($first_star))
+//        {
+//            echo '<div id="resultsTag">selected first star is a valid actor</div>';
+//        }
+//        else
+//        {
+//            echo '<div id="resultsTag">selected first star is NOT a valid actor</div>';
+//        }
+//        
+//        // Test to see if new first star is valid
+//        if (isValidNewActor($new_first_star))
+//        {
+//            echo '<div id="resultsTag">New First start is valid!</div>';
+//        }
+//        else
+//        {
+//            echo '<div id="resultsTag">New First start is invalid!</div>';
+//        }
         
         // Test if Rental period is an allowed value
         if (isValidRentalPeriod($rental_period))
         {
-            echo '<div id="resultsTag">Rental period is valid!</div>';
+            //echo '<div id="resultsTag">Rental period is valid!</div>';
         }
         else
         {
             echo '<div id="resultsTag">Rental period is invalid!</div>';
+            $all_ok = false;
         }
         
         // Check if valid dvd rental price
         if (isValidPrice($dvd_rental_price))
         {
-            echo '<div id="resultsTag">Valid DVD rental price</div>';
+            //echo '<div id="resultsTag">Valid DVD rental price</div>';
         }
         else
         {
-            echo '<div id="resultsTag">Invalid DVD rental price</div>';
+            echo '<div id="resultsTag">Invalid DVD rental price - must be a number</div>';
+            $all_ok = false;
         }
         
-        // Check if valid dvd quantity
+        // Check purchase price
+        if (isValidPrice($dvd_purchase_price))
+        {
+            
+        }
+        else 
+        {
+            echo '<div id="resultsTag">Invalid DVD purchase price - must be a number</div>';
+            $all_ok = false;
+        }
+        
+        // Check if valid dvd in stock quantity
         if (isValidStockQuantity($numDVD))
         {
-            echo '<div id="resultsTag">Valid DVD quantity!</div>';
+            //echo '<div id="resultsTag">Valid DVD quantity!</div>';
         }
         else
         {
-            echo '<div id="resultsTag">Invalid DVD quantity!</div>';
+            echo '<div id="resultsTag">Invalid DVD in stock quantity - must be a number</div>';
+            $all_ok = false;
         }
+        
+        // check dvd rented out quantity
+        if (isValidStockQuantity($numDVDout))
+        {
+            
+        }
+        else
+        {
+            echo '<div id="resultsTag">Invalid out of stock DVD quantity - must be a number</div>';
+            $all_ok = false;
+        }
+        
+        // Check BluRay rental price
+        if (isValidPrice($bluray_rental_price))
+        {
+            
+        }
+        else
+        {
+            echo '<div id="resultsTag">Invalid BluRay rental price - must be a number</div>';
+            $all_ok = false;
+        }
+        
+        // Check BluRay purchase price
+        if (isValidPrice($bluray_purchase_price))
+        {
+            
+        }
+        else
+        {
+            echo '<div id="resultsTag">Invalid BluRay purchase price - must be a number</div>';
+            $all_ok = false;
+        }
+        
+        // Check BluRay in stock
+        if (isValidStockQuantity($numBluRay))
+        {
+            
+        }
+        else
+        {
+            echo '<div id="resultsTag">Invalid BluRay in stock quantity - must be a number</div>';
+            $all_ok = false;
+        }
+        
+        // Check BluRay out stock 
+        if (isValidStockQuantity($numBluRayOut))
+        {
+            
+        }
+        else
+        {
+            echo '<div id="resultsTag">Invalid BluRay in out of stock quantity - must be a number</div>';
+            $all_ok = false;
+        }
+      
+        var_dump($all_ok);
+    }
+    
+    // Function to check if all the required values are valid
+    function isAllRequiredValesValid($movieData)
+    {
         
     }
     
