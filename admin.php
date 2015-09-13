@@ -26,6 +26,10 @@
                     $includeFileName = 'admin_edit_movie.inc';
                     $pageTitle = "Control Panel - Edit Movie";
                     break;
+                case 'new_movie':
+                    $includeFileName = 'admin_new_movie.inc';
+                    $pageTitle = 'Control Panel - New Movie';
+                    break;
                 
             }
         } else {
