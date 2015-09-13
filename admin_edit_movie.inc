@@ -49,7 +49,9 @@
     if (isset($_GET['movie_title']))
     {
         // Query database for movie
-        $query = "SELECT * FROM movie WHERE title = '".$_GET['movie_title']."'";
+        $movie_title = mysqli_real_escape_string($dataConnection, $_GET['movie_title']); // Escape input
+        
+        $query = "SELECT * FROM movie WHERE title = '".$movie_title."'";
         // Execute query
         $result = $dataConnection->query($query);
 
