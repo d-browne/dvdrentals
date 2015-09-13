@@ -26,6 +26,10 @@
         $bluray_purchase_price = mysqli_real_escape_string($dataConnection, $movieData['bluray_purchase_price']);
         $numBluRay = mysqli_real_escape_string($dataConnection, $movieData['numBluRay']);
         $numBluRayOut = mysqli_real_escape_string($dataConnection, $movieData['numBluRayOut']);
+        $second_star = mysqli_real_escape_string($dataConnection, $movieData['second_star_name']);
+        $new_second_star = mysqli_real_escape_string($dataConnection, $movieData['new_second_star']);
+        $third_star = mysqli_real_escape_string($dataConnection, $movieData['third_star_name']);
+        $new_third_star = mysqli_real_escape_string($dataConnection, $movieData['third_star_name']);
         
         // Variable to make sure all required checks working
         $all_ok = true;
@@ -249,9 +253,36 @@
             echo '<div id="resultsTag">Invalid BluRay in out of stock quantity - must be a number</div>';
             $all_ok = false;
         }
+        
+        // Check  first star
+        if (isValidActor($first_star) || isValidNewActor($new_first_star))
+        {
+            
+        }
+        else
+        {
+            echo '<div id="resultsTag">Invalid First Star - You must specify a first star or create a new one</div>';
+            $all_ok = false;
+        }
+        
+        // Check second star
+        if (isValidActor($second_star) || isValidNewActor($new_second_star))
+        {
+            
+        }
+        else
+        {
+
+            echo '<div id="resultsTag">Invalid Second Star - You must specify a second star or create a new one</div>';
+            $all_ok = false;
+        }
+        
+            
       
         var_dump($all_ok);
         var_dump($poster);
+        
+        
         
         if ($all_ok)
         {
@@ -337,9 +368,66 @@
                     . "".(int)$numBluRay.", "
                     . "".(int)$numBluRayOut.");";
             echo $query.'<br>';
+            $dataConnection->query($query); // Execute insert and create movie
+            $movie_id = mysqli_insert_id($dataConnection);
+            
+            // Create stars and associate with movie
+            
+            // if first star not specified create new actor to be first star
+            if (!isValidActor($first_star))
+            {
+                // Query to create new first star
+                $query = "INSERT INTO actor VALUES (DEFAULT, '".$new_first_star."');";
+                $dataConnection->query($query); // Execute query
+                
+                // use new first star as first star for remainder of the script
+                $first_star = $new_first_star;
+            }
+            
+            // Get first star id
+            $first_star_id = getActorId($first_star);
+            
+            
+            // Insert first star into move_actor table as first star
+            $query = "INSERT INTO movie_actor VALUES (".(int)$movie_id.", ".$first_star_id.", 'star1')";
+            $dataConnection->query($query);
+            
+            // If second star not specified create new actor to be second star
+            if (!isValidActor($second_star))
+            {
+                // Query to create new second star
+                $query = "INSERT INTO actor VALUES (DEFAULT, '".$new_second_star."');";
+                $dataConnection->query($query); // Execute query
+                
+                // Use new second start as second star for remainder of script
+                $second_star = $new_second_star;
+            }
+            
+            // Get second star id 
+            $second_star_id = getActorId($second_star);
+            
+            
+            // Insert second start into movie_actor table as star2
+            $query = "INSERT INTO movie_actor VALUES (".(int)$movie_id.", ".$second_star_id.", 'star2')";
             $dataConnection->query($query);
         }
         
+    }
+    
+    // Function to get actor_id
+    function getActorId($actor)
+    {
+        // Connect to database
+        include 'connect_to_database.inc';
+        
+        // Query to get actor_id 
+        $query = "SELECT actor_id FROM actor WHERE actor_name = '".$actor."'";
+        $result = $dataConnection->query($query);
+        $row = $result->fetch_assoc();
+        
+        $actor_id = $row['actor_id'];
+        
+        return $actor_id;
     }
     
     // Function to get genre_id
