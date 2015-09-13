@@ -4,6 +4,7 @@
     {
         $title = mysqli_real_escape_string($dataConnection, $movieData['movie_title']);
         $year = mysqli_real_escape_string($dataConnection, $movieData['movie_year']);
+        $tagline = mysqli_real_escape_string($dataConnection, $movieData['movie_tagline']);
         
         // Check valid title is working
         if (isValidTitle($title))
@@ -25,8 +26,43 @@
             echo '<div id="resultsTag">Year invalid</div>';
         }
         
+        // Check if valid tagline is working
+        if (isValidTagline($tagline))
+        {
+            echo '<div id="resultsTag">tagline valid</div>';
+        }
+        else
+        {
+            echo '<div id="resultsTag">tagline invalid</div>';
+        }
         
         
+    }
+    
+    // Function to check tagline
+    // Must not be blank and must not exist in database
+    function isValidTagline($tagline)
+    {
+        // check blank
+        if (empty($tagline))
+        {
+            return false;
+        }
+        
+        // Check if in database
+        include 'connect_to_database.inc'; // Connect to database
+        
+        // Query to see if tagline in database
+        $query = "SELECT tagline FROM movie WHERE tagline = '".$tagline."'";
+        $result = $dataConnection->query($query);  
+        
+        // If result returned then the tagline already exists in database so return false
+        if ($result->num_rows > 0)
+        {
+            return false;
+        }
+        
+        return true; // Valid tagline
     }
     
     // Function to validate title
