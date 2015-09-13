@@ -14,6 +14,8 @@
     if (isset($_POST['submit_create'])) // Check if create movie button clicked
     {
         // Process new movie request
+        include 'add_movie_to_database.inc';
+        addMovieToDatabase($dataConnection, $_POST);
     }
     
     // Get get array of directors to populate select box
