@@ -13,6 +13,13 @@
         $new_studio = mysqli_real_escape_string($dataConnection, $movieData['new_studio']);
         $genre = mysqli_real_escape_string($dataConnection, $movieData['genre_name']);
         $new_genre = mysqli_real_escape_string($dataConnection, $movieData['new_genre']);
+        $classification = mysqli_real_escape_string($dataConnection, $movieData['classification_name']);
+        $new_classification = mysqli_real_escape_string($dataConnection, $movieData['new_classification']);
+        $first_star = mysqli_real_escape_string($dataConnection, $movieData['first_star_name']);
+        $new_first_star = mysqli_real_escape_string($dataConnection, $movieData['new_first_star']);
+        $rental_period = mysqli_real_escape_string($dataConnection, $movieData['rental_period']);
+        $dvd_rental_price = mysqli_real_escape_string($dataConnection, $movieData['dvd_rental_price']);
+        $numDVD = mysqli_real_escape_string($dataConnection, $movieData['numDVD']);
         
         
         // Check valid title is working
@@ -125,7 +132,212 @@
             echo '<div id="resultsTag">Invalid new genre</div>';
         }
         
+        // Test if selected classification is valid
+        if (isValidClassification($classification))
+        {
+            echo '<div id="resultsTag">Classification is valid</div>';
+        }
+        else
+        {
+            echo '<div id="resultsTag">Classification is invalid</div>';
+        }
         
+        // Test to check if new classification is valid
+        if (isValidNewClassification($new_classification))
+        {
+            echo '<div id="resultsTag">New Classification is valid</div>';
+        }
+        else
+        {
+            echo '<div id="resultsTag">New Classification is invalid</div>';
+        }
+        
+        // Test to see if selected first star is a valid actor
+        if (isValidActor($first_star))
+        {
+            echo '<div id="resultsTag">selected first star is a valid actor</div>';
+        }
+        else
+        {
+            echo '<div id="resultsTag">selected first star is NOT a valid actor</div>';
+        }
+        
+        // Test to see if new first star is valid
+        if (isValidNewActor($new_first_star))
+        {
+            echo '<div id="resultsTag">New First start is valid!</div>';
+        }
+        else
+        {
+            echo '<div id="resultsTag">New First start is invalid!</div>';
+        }
+        
+        // Test if Rental period is an allowed value
+        if (isValidRentalPeriod($rental_period))
+        {
+            echo '<div id="resultsTag">Rental period is valid!</div>';
+        }
+        else
+        {
+            echo '<div id="resultsTag">Rental period is invalid!</div>';
+        }
+        
+        // Check if valid dvd rental price
+        if (isValidPrice($dvd_rental_price))
+        {
+            echo '<div id="resultsTag">Valid DVD rental price</div>';
+        }
+        else
+        {
+            echo '<div id="resultsTag">Invalid DVD rental price</div>';
+        }
+        
+        // Check if valid dvd quantity
+        if (isValidStockQuantity($numDVD))
+        {
+            echo '<div id="resultsTag">Valid DVD quantity!</div>';
+        }
+        else
+        {
+            echo '<div id="resultsTag">Invalid DVD quantity!</div>';
+        }
+        
+    }
+    
+    // Function to check if valid stock quantity
+    // must be a number
+    function isValidStockQuantity($quantity)
+    {
+        // Return true if value integer
+        if (is_numeric($quantity))
+        {
+            return true;
+        }
+        // Not integer return false
+        return false;
+    }
+    
+    // Function to check if valid price
+    // must be a number
+    function isValidPrice($price) 
+    {
+        // return true if valid floating point number
+        if (is_numeric($price))
+        {
+            return true;
+        }
+        
+        // Not a valid float, return false
+        return false;
+    }
+    
+    // Function to check if valid rental period
+    // Must be '3 Day', 'Weekly' or 'Overnight'
+    function isValidRentalPeriod($rental_period)
+    {
+        $allowed_values = array('3 Day', 'Weekly', 'Overnight');
+        
+        // Check if rental period is an allowed value
+        $isValid = in_array($rental_period, $allowed_values);
+        if ($isValid)
+        {
+            return true;
+        }
+        
+        return false; // Rental period not allowed
+    }
+    
+    // Function to check if new actor is valid
+    // must not be blank
+    // not NOT exist in database
+    function isValidNewActor($new_actor)
+    {
+        // Return false if blank
+        if (empty($new_actor)) 
+        {
+            return false;
+        }
+        
+        // connect to database
+        include 'connect_to_database.inc';
+        $query = "SELECT actor_name FROM actor WHERE actor_name = '".$new_actor."'";
+        $result = $dataConnection->query($query);
+        
+        // Retrun false if actor already exists in database
+        if ($result->num_rows > 0)
+        {
+            return false;
+        }
+        
+        return true; // Valid new actor
+    }
+    
+    // function to check if selected actor is valid
+    // must exist in database
+    function isValidActor($actor)
+    {
+        // Connect to database
+        include 'connect_to_database.inc';
+        
+        // Query to check if actor is in database
+        $query = "SELECT actor_name FROM actor WHERE actor_name = '".$actor."'";
+        $result = $dataConnection->query($query);
+        
+        // Return true if actor is in database
+        if ($result->num_rows > 0)
+        {
+            return true;
+        }
+        
+        return false; // Actor not in database
+        
+    }
+    
+    // Function to check if new classification is valid
+    // Must not be blank
+    // must NOT exist in database
+    function isValidNewClassification($new_classification)
+    {
+        // Check if new classification is blank
+        if (empty($new_classification))
+        {
+            return false;
+        }
+        
+        // Connect to database
+        include 'connect_to_database.inc';
+        
+        // Query for new classification
+        $query = "SELECT classification FROM movie WHERE classification = '".$new_classification."'";
+        $result = $dataConnection->query($query);
+        
+        // If classification exists in database return false
+        if ($result->num_rows > 0)
+        {
+            return false;
+        }
+        
+        return true; // Valid new classification
+    }
+    
+    // Function to check if selected classification is valid
+    // Must exist in database
+    function isValidClassification($classification)
+    {
+        // Connect to database
+        include 'connect_to_database.inc';
+        
+        // Query for classifications
+        $query = "SELECT classification FROM movie WHERE classification = '".$classification."'";
+        $result = $dataConnection->query($query);
+        
+        // If classification in database return true
+        if ($result->num_rows > 0)
+        {
+            return true;
+        }
+        
+        return false; // Classification not in database, return false.
     }
     
     // Function to check if new_genre is valid
