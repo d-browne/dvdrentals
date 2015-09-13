@@ -16,8 +16,10 @@
         // Process new movie request
     }
     
-    // Get get array of directors
+    // Get get array of directors to populate select box
     $directors = getDirectors($dataConnection);
+    // Get array of studios to populate select box
+    $studios = getStudios($dataConnection);
     
     // Function to return array of directors
     function getDirectors($dataConnection)
@@ -48,7 +50,28 @@
     // Function to return array of studios
     function getStudios($dataConnection)
     {
+        // Query to get all studios
+        $query =    "SELECT studio_name FROM studio
+                    ORDER BY studio_name";
         
+        //execute query
+        $result = $dataConnection->query($query);
+        
+        // create array to hold studios
+        $studios = array();
+        
+        // Check if result returned any values
+        if ($result->num_rows > 0)
+        {
+            // Loop through each result and put it in array
+            while ($row = $result->fetch_assoc())
+            {
+                array_push($studios, $row['studio_name']);
+            }
+        }
+        
+        // Return array data
+        return $studios;
     }
     
     // Function to return array of genres
@@ -96,7 +119,13 @@
             <div class="memberDetailsField"><label>Studio:</label>
                 <select name="studio_name"> 
                     <option value="blank">Select...</option>
-                    <option value="Marvel">Marvel</option>
+                    <?php
+                        // Loop through each studio in array and create list item for each
+                        foreach ($studios as $studio)
+                        {
+                            echo '<option value="'.$studio.'">'.$studio.'</option>';
+                        }
+                    ?>
                 </select> *
             </div>
             <div class="memberDetailsField"><label>New Studio: </label><input type="text" name="new_studio" /></div>
