@@ -32,6 +32,8 @@
         $new_third_star = mysqli_real_escape_string($dataConnection, $movieData['new_third_star']);
         $first_costar = mysqli_real_escape_string($dataConnection, $movieData['first_costar_name']);
         $new_first_costar = mysqli_real_escape_string($dataConnection, $movieData['new_first_costar']);
+        $second_costar = mysqli_real_escape_string($dataConnection, $movieData['second_costar_name']);
+        $new_second_costar = mysqli_real_escape_string($dataConnection, $movieData['new_second_costar']);
         
         // Variable to make sure all required checks working
         $all_ok = true;
@@ -435,29 +437,39 @@
                 $dataConnection->query($query);
             }
             
-            // Check if third star or new third star selected
+            // First Costar
             if (isValidActor($first_costar) || isValidNewActor($new_first_costar))
             {
-                // If third star not specifed in dropdown create a new one from new third star
                 if (!isValidActor($first_costar))
                 {
-                    var_dump($first_costar);
-                    // Query to create new third star
                     $query = "INSERT INTO actor VALUES (DEFAULT, '".$new_first_costar."');";
                     $dataConnection->query($query); // Execute query
                     
-                    // Use new third star for remainder of script
                     $first_costar = $new_first_costar;
                 }
                 
-                // Get third star_id
                 $first_costar_id = getActorId($first_costar);
                 
-                // Insert third star into movie_actor table as star3
                 $query = "INSERT INTO movie_actor VALUES (".(int)$movie_id.", ".$first_costar_id.", 'costar1')";
                 $dataConnection->query($query);
             }
             
+            // Second Costar
+            if (isValidActor($second_costar) || isValidNewActor($new_second_costar))
+            {
+                if (!isValidActor($second_costar))
+                {
+                    $query = "INSERT INTO actor VALUES (DEFAULT, '".$new_second_costar."');";
+                    $dataConnection->query($query); // Execute query
+                    
+                    $second_costar = $new_second_costar;
+                }
+                
+                $second_costar = getActorId($second_costar);
+                
+                $query = "INSERT INTO movie_actor VALUES (".(int)$movie_id.", ".$second_costar.", 'costar1')";
+                $dataConnection->query($query);
+            }
             
         }
         
