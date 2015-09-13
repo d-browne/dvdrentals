@@ -1,3 +1,10 @@
+<?php
+    // Include random movie function
+    include 'random_movie.inc';
+    
+    $randomMovie = getRandomMovie();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,21 +32,21 @@
 			<h2 id="newReleasesHeader">New Releases</h2>
 
 			<fieldset>
-				<legend>Home (2015)</legend>
+				<legend><?php echo $randomMovie['title'].' ('.$randomMovie['year'].')' ?> </legend>
 					
 
 
 					<span class="newReleaseHeading">Title: </span>
-					<span class="newReleaseBody">Home</span>
+					<span class="newReleaseBody"><?php echo $randomMovie['title']; ?></span>
 
-					<span class="newReleaseHeading">Runtime: </span>
-					<span class="newReleaseBody">94 minutes</span>
+					<span class="newReleaseHeading">Genre: </span>
+					<span class="newReleaseBody"><?php echo $randomMovie['genre_name']; ?></span>
 
 					<span class="newReleaseHeading">Description: </span>
-					<span class="newReleaseBody">Oh, an alien on the run from his own people, lands on Earth and makes friends with the adventurous Tip, who is on a quest of her own.</span>
+					<span class="newReleaseBody"><?php echo $randomMovie['plot']; ?></span>
 
 					<span class="newReleaseHeading">Image:</span>
-					<img src="images/home2015.jpg" alt="Home (2015)" />
+					<img width="150" src="images/movie_images/<?php echo $randomMovie['thumbpath']; ?>" alt="<?php echo $randomMovie['title']; ?> (<?php echo $randomMovie['year']; ?>)" />
 
 			</fieldset>
 
