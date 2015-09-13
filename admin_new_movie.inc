@@ -1,8 +1,72 @@
 <?php
-    // PHP to process post request
+    // Include database settings
+    include 'database_settings.inc';    // Edit database_settings.inc to change database settings
+
+    // Connect to database
+    $dataConnection = new mysqli($servername, $username, $password, $databaseName);
+    
+    // Check if connection successful and stop execution if not.
+    if ($dataConnection->connect_error) {
+        die("Error connecting to database: " . $dataConnection->connect_error);
+    }
+
+    // Check if user attempted to create new movie
     if (isset($_POST['submit_create'])) // Check if create movie button clicked
     {
-        var_dump($_POST);
+        // Process new movie request
+    }
+    
+    // Get get array of directors
+    $directors = getDirectors($dataConnection);
+    
+    // Function to return array of directors
+    function getDirectors($dataConnection)
+    {
+        // Query to get all directors
+        $query =    "SELECT director_name FROM director
+                    ORDER BY director_name";
+        // Execute query 
+        $result = $dataConnection->query($query);
+        
+        // Create array to hold directors
+        $directors = array();
+        
+        // check if query results found
+        if ($result->num_rows > 0)
+        {
+            // loop through each result and put director in array
+            while ($row = $result->fetch_assoc())
+            {
+                array_push($directors, $row['director_name']);
+            }
+        }
+        
+        // Return directors array
+        return $directors;
+        
+    }
+    // Function to return array of studios
+    function getStudios($dataConnection)
+    {
+        
+    }
+    
+    // Function to return array of genres
+    function getGenres($dataConnection)
+    {
+        
+    }
+    
+    // Function to return an array of classifications
+    function getClassifications($dataConnection)
+    {
+        
+    }
+    
+    // Function to return an array of actors
+    function getActors($dataConnection)
+    {
+        
     }
 
 ?>
@@ -19,7 +83,13 @@
             <div class="memberDetailsField"><label>Director: </label>
                 <select name="director_name"> 
                     <option value="blank">Select...</option>
-                    <option value="Val Kilmer">Val Kilmer</option>
+                    <?php
+                        // For each director in directors array create option for director
+                        foreach ($directors as $director)
+                        {
+                            echo '<option value="'.$director.'">'.$director.'</option>';
+                        }
+                    ?>
                 </select> *
             </div>
             <div class="memberDetailsField"><label>New Director: </label><input type="text" name="new_director" /></div>
