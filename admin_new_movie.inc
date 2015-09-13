@@ -1,3 +1,12 @@
+<?php
+    // PHP to process post request
+    if (isset($_POST['submit_create'])) // Check if create movie button clicked
+    {
+        var_dump($_POST);
+    }
+
+?>
+
 <form action="admin.php?action=new_movie" method="POST">
     <div class="controlPanelSection">
         <fieldset>
