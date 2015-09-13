@@ -57,7 +57,7 @@
         if ($result->num_rows > 0)
         {
             // Display edit movie page body
-            include 'admin_edit_movie_body.inc"';
+            include 'admin_edit_movie_body.inc';
         }
         else
         {
