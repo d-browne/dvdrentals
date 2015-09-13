@@ -9,7 +9,7 @@
             </a>
         </div>
         <div class="adminControl" id="addUserControl">
-            <a href="join.html">
+            <a href="join.php">
                 <div class="adminControlIcon" id="addUserIcon"></div>
                 <div class="adminControlCaption">New user</div>
             </a>
