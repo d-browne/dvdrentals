@@ -50,8 +50,11 @@
     // Check if GET request submitted with member_username
     if (isset($_GET['member_username']))
     {
+        // Escape input
+        $member_username = mysqli_real_escape_string($dataConnection, $_GET['member_username']); // Escpae input
+        //
         // Query database for username
-        $query = "SELECT * FROM member WHERE username = '".$_GET['member_username']."'";
+        $query = "SELECT * FROM member WHERE username = '".$member_username."'";
         $result = $dataConnection->query($query);
       
         // Check if username matches a member in the database
