@@ -9,6 +9,7 @@
         $poster = $_FILES['movie_poster'];
         $director = mysqli_real_escape_string($dataConnection, $movieData['director_name']);
         $new_director = mysqli_real_escape_string($dataConnection, $movieData['new_director']);
+        $studio = mysqli_real_escape_string($dataConnection, $movieData['studio_name']);
         
         // Check valid title is working
         if (isValidTitle($title))
@@ -80,6 +81,43 @@
             echo '<div id="resultsTag">New Director Invalid</div>';
         }
         
+        // Test to chick if valid stuio function working
+        if (isValidStudio($studio))
+        {
+            echo '<div id="resultsTag">Valid studio</div>';
+        }
+        else
+        {
+            echo '<div id="resultsTag">Invalid studio</div>';
+        }
+    }
+    
+    // Function to check if studio is valid
+    // Must not be blank
+    // Must exist in database
+    function isValidStudio($studio)
+    {
+        // Return false if empty
+        if (empty($studio))
+        {
+            return false;
+        }
+        
+        // Connect to database
+        include 'connect_to_database.inc';
+        
+        // Query database for selected stuido
+        $query = "SELECT studio_name FROM studio WHERE studio_name = '".$studio."'";
+        $result = $dataConnection->query($query);
+        
+        // If studio in database return true
+        if ($result->num_rows > 0)
+        {
+            return true;
+        }
+        
+        // Studio not found in database return false
+        return false;
     }
     
     // Function to check if new director is valid
