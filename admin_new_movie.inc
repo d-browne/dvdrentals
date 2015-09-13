@@ -24,6 +24,8 @@
     $genres = getGenres($dataConnection);
     // Get array of classifications to populate select box
     $classifications = getClassifications($dataConnection);
+    // Get array of actors to populate list box
+    $actors = getActors($dataConnection);
     
     // Function to return array of directors
     function getDirectors($dataConnection)
@@ -134,7 +136,27 @@
     // Function to return an array of actors
     function getActors($dataConnection)
     {
+        // Query to get all actors
+        $query =    "SELECT actor_name FROM actor
+                    ORDER BY actor_name";
+        // Execute query
+        $result = $dataConnection->query($query);
         
+        // array to hold all actors
+        $actors = array();
+        
+        // check if results in query
+        if ($result->num_rows > 0)
+        {
+            // loop through results and add each actor to array
+            while ($row = $result->fetch_assoc())
+            {
+                array_push($actors, $row['actor_name']);
+            }
+        }
+        
+        // Return array of actors
+        return $actors;
     }
 
 ?>
@@ -208,42 +230,78 @@
             <div class="memberDetailsField"><label>First star:</label>
                 <select name="first_star_name">
                     <option value="blank">Select...</option>
-                    <option value="Val Kilmer">Val Kilmer</option>
+                    <?php
+                        // Populate list box with options of all actor in array
+                        foreach ($actors as $actor)
+                        {
+                            echo '<option value="'.$actor.'">'.$actor.'</option>';
+                        }
+                    ?>
                 </select> *
             </div>
             <div class="memberDetailsField"><label>New First Star: </label><input type="text" name="new_first_star" /></div>
             <div class="memberDetailsField"><label>Second Star:</label>
                 <select name="second_star_name">
                     <option value="blank">Select...</option>
-                    <option value="Val Kilmer">val Kilmer</option>
+                    <?php
+                        // Populate list box with options of all actor in array
+                        foreach ($actors as $actor)
+                        {
+                            echo '<option value="'.$actor.'">'.$actor.'</option>';
+                        }
+                    ?>
                 </select> *
             </div>
             <div class="memberDetailsField"><label>New Second Star: </label><input type="text" name="new_second_star" /></div>
             <div class="memberDetailsField"><label>Third Star: </label>
                 <select name="third_star_name">
                     <option value="blank">Select...</option>
-                    <option value="Val Kilmer">Val Kilmer</option>
+                    <?php
+                        // Populate list box with options of all actor in array
+                        foreach ($actors as $actor)
+                        {
+                            echo '<option value="'.$actor.'">'.$actor.'</option>';
+                        }
+                    ?>
                 </select>
             </div>
             <div class="memberDetailsField"><label>New Third Star: </label><input type="text" name="new_third_star" /></div>
             <div class="memberDetailsField"><label>First Costar</label>
                 <select name="first_costar_name">
                     <option value="blank">Select...</option>
-                    <option value="M">M</option>
+                    <?php
+                        // Populate list box with options of all actor in array
+                        foreach ($actors as $actor)
+                        {
+                            echo '<option value="'.$actor.'">'.$actor.'</option>';
+                        }
+                    ?>
                 </select>
             </div>
             <div class="memberDetailsField"><label>New First Costar: </label><input type="text" name="new_first_costar" /></div>
             <div class="memberDetailsField"><label>Second Costar:</label>
                 <select name="second_costar_name">
                     <option value="blank">Select...</option>
-                    <option value="M">M</option>
+                    <?php
+                        // Populate list box with options of all actor in array
+                        foreach ($actors as $actor)
+                        {
+                            echo '<option value="'.$actor.'">'.$actor.'</option>';
+                        }
+                    ?>
                 </select>
             </div>
             <div class="memberDetailsField"><label>New Second Costar: </label><input type="text" name="new_second_costar" /></div>
             <div class="memberDetailsField"><label>Third Costar:</label>
                 <select name="third_costar_name">
                     <option value="blank">Select...</option>
-                    <option value="M">M</option>
+                    <?php
+                        // Populate list box with options of all actor in array
+                        foreach ($actors as $actor)
+                        {
+                            echo '<option value="'.$actor.'">'.$actor.'</option>';
+                        }
+                    ?>
                 </select>
             </div>
             <div class="memberDetailsField"><label>New Third Costar: </label><input type="text" name="new_third_costar" /></div>
