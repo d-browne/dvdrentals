@@ -21,15 +21,15 @@
 
 		<div id="menuBar">
 			<h3 id="menuHeader">Menu</h3>
-			<a href="index.html">Home</a>
-			<a href="join.html">Join</a>
-			<a href="techzone.html">Tech Zone</a>
+			<a href="index.php">Home</a>
+			<a href="join.php">Join</a>
+			<a href="techzone.php">Tech Zone</a>
 			<a href="moviezone.php">Movie Zone</a>
-			<a href="contact.html">Contact</a>
+			<a href="contact.php">Contact</a>
 		</div>
 
 		<div id="rightColumn">
-			<h2 id="newReleasesHeader">New Releases</h2>
+                    <h2 id="newReleasesHeader"><a href="moviezone.php">New Releases</a></h2>
 
 			<fieldset>
 				<legend><?php echo $randomMovie['title'].' ('.$randomMovie['year'].')' ?> </legend>
@@ -46,7 +46,7 @@
 					<span class="newReleaseBody"><?php echo $randomMovie['plot']; ?></span>
 
 					<span class="newReleaseHeading">Image:</span>
-					<img width="150" src="images/movie_images/<?php echo $randomMovie['thumbpath']; ?>" alt="<?php echo $randomMovie['title']; ?> (<?php echo $randomMovie['year']; ?>)" />
+					<img width="140" src="images/movie_images/<?php echo $randomMovie['thumbpath']; ?>" alt="<?php echo $randomMovie['title']; ?> (<?php echo $randomMovie['year']; ?>)" />
 
 			</fieldset>
 

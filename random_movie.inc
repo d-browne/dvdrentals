@@ -30,7 +30,7 @@ function getRandomMovie() {
         }
 
         // Select random number between 0 and max length of array
-        $randomIndex = rand(0, count($movies));
+        $randomIndex = rand(0, count($movies)-1);
         
         return $movies[$randomIndex];
     }
