@@ -251,6 +251,100 @@
         }
       
         var_dump($all_ok);
+        var_dump($poster);
+        
+        if ($all_ok)
+        {
+            // Copy poster to images folda.
+            $thumbpath = time().$poster['name'];
+            move_uploaded_file($poster['tmp_name'], 'images/movie_images/'.$thumbpath);
+            echo 'image copied';
+            $director_id = getDirectorId($director);
+            echo 'director id is '.$director_id.'<br>';
+            
+            // Get studio id
+            $studio_id = getStudioId($studio);
+            echo 'studio id is: '.$studio_id.'<br>';
+            
+            // Get genre id
+            $genre_id = getGenreId($genre);
+            echo 'genre id is: '.$genre_id.'<br>';
+            
+            // Connect to databoos.
+            include 'connect_to_database.inc';
+            // Create query new el'movio
+            $query = "INSERT INTO movie VALUES (DEFAULT, '".$title."', "
+                    . "'".$tagline."', "
+                    . "'".$plot."', "
+                    . "'".$thumbpath."', "
+                    . "".(int)$director_id.", "
+                    . "".(int)$studio_id.", "
+                    . "".(int)$genre_id.", "
+                    . "'".$classification."', "
+                    . "'".$rental_period."', "
+                    . "".(int)$year.", "
+                    . "".(float)$dvd_rental_price.", "
+                    . "".(float)$dvd_purchase_price.", "
+                    . "".(int)$numDVD.", "
+                    . "".(int)$numDVDout.", "
+                    . "".(float)$bluray_rental_price.", "
+                    . "".(float)$bluray_purchase_price.", "
+                    . "".(int)$numBluRay.", "
+                    . "".(int)$numBluRayOut.");";
+            echo $query.'<br>';
+            $dataConnection->query($query);
+        }
+        
+    }
+    
+    // Function to get genre_id
+    function getGenreId($genre)
+    {
+        // Connect to database
+        include 'connect_to_database.inc';
+        
+        // Query to get genre_id
+        $query = "SELECT genre_id FROM genre WHERE genre_name = '".$genre."'";
+        $result = $dataConnection->query($query);
+        $row = $result->fetch_assoc();
+        
+        $genre_id = $row['genre_id'];
+        
+        return $genre_id; 
+    }
+    
+    // Function to get studio_id
+    function getStudioId($studio)
+    {
+        // Connect to database
+        include 'connect_to_database.inc';
+        
+        // Query to get studio id
+        $query = "SELECT studio_id FROM studio WHERE studio_name = '".$studio."'";
+        $result = $dataConnection->query($query);
+        $row = $result->fetch_assoc();
+        
+        $studio_id = $row['studio_id'];
+        
+        return $studio_id;
+    }
+    
+    // Function to get director_id
+    function getDirectorId($director)
+    {
+        // Connect to database
+        include 'connect_to_database.inc';
+        
+        // Query to get director id
+        $query = "SELECT director_id FROM director WHERE director_name = '".$director."'";
+        $result = $dataConnection->query($query);
+        $row = $result->fetch_assoc();
+        
+        // Get director id from row
+        $director_id = $row['director_id'];
+        
+        // Return director id
+        return $director_id;
     }
     
     // Function to check if all the required values are valid
