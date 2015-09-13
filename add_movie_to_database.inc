@@ -34,6 +34,8 @@
         $new_first_costar = mysqli_real_escape_string($dataConnection, $movieData['new_first_costar']);
         $second_costar = mysqli_real_escape_string($dataConnection, $movieData['second_costar_name']);
         $new_second_costar = mysqli_real_escape_string($dataConnection, $movieData['new_second_costar']);
+        $third_costar = mysqli_real_escape_string($dataConnection, $movieData['third_costar_name']);
+        $new_third_costar = mysqli_real_escape_string($dataConnection, $movieData['new_third_costar']);
         
         // Variable to make sure all required checks working
         $all_ok = true;
@@ -468,6 +470,23 @@
                 $second_costar = getActorId($second_costar);
                 
                 $query = "INSERT INTO movie_actor VALUES (".(int)$movie_id.", ".$second_costar.", 'costar1')";
+                $dataConnection->query($query);
+            }
+            
+            // Third Costar
+            if (isValidActor($third_costar) || isValidNewActor($new_third_costar))
+            {
+                if (!isValidActor($third_costar))
+                {
+                    $query = "INSERT INTO actor VALUES (DEFAULT, '".$new_third_costar."');";
+                    $dataConnection->query($query); // Execute query
+                    
+                    $third_costar = $new_third_costar;
+                }
+                
+                $third_costar = getActorId($third_costar);
+                
+                $query = "INSERT INTO movie_actor VALUES (".(int)$movie_id.", ".$third_costar.", 'costar1')";
                 $dataConnection->query($query);
             }
             
