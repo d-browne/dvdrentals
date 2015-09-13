@@ -1,4 +1,4 @@
-<form>
+<form action="admin.php?action=new_movie" method="POST">
     <div class="controlPanelSection">
         <fieldset>
             <legend>New Movie</legend>
