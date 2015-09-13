@@ -284,10 +284,7 @@
         }
         
             
-      
-        var_dump($all_ok);
-        var_dump($poster);
-        
+
         
         
         if ($all_ok)
@@ -339,19 +336,15 @@
             // Copy poster to images folda.
             $thumbpath = time().$poster['name'];
             move_uploaded_file($poster['tmp_name'], 'images/movie_images/'.$thumbpath);
-            echo 'image copied';
             
             // get dorector id
             $director_id = getDirectorId($director);
-            echo 'director id is '.$director_id.'<br>';
             
             // Get studio id
             $studio_id = getStudioId($studio);
-            echo 'studio id is: '.$studio_id.'<br>';
             
             // Get genre id
             $genre_id = getGenreId($genre);
-            echo 'genre id is: '.$genre_id.'<br>';
             
             
             // Create query new el'movio
@@ -373,7 +366,7 @@
                     . "".(float)$bluray_purchase_price.", "
                     . "".(int)$numBluRay.", "
                     . "".(int)$numBluRayOut.");";
-            echo $query.'<br>';
+            //echo $query.'<br>';
             $dataConnection->query($query); // Execute insert and create movie
             $movie_id = mysqli_insert_id($dataConnection);
             
@@ -490,6 +483,10 @@
                 $dataConnection->query($query);
             }
             
+            // Send users browser to newly created edit page movie
+            header('Location: admin.php?action=edit_movie&movie_title='.$title);
+            die();
+            
         }
         
     }
@@ -552,7 +549,6 @@
         $query = "SELECT director_id FROM director WHERE director_name = '".$director."'";
         $result = $dataConnection->query($query);
         $row = $result->fetch_assoc();
-        var_dump($row);
         // Get director id from row
         $director_id = $row['director_id'];
         
