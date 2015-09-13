@@ -20,6 +20,8 @@
     $directors = getDirectors($dataConnection);
     // Get array of studios to populate select box
     $studios = getStudios($dataConnection);
+    // Get array of genres to populate select box
+    $genres = getGenres($dataConnection);
     
     // Function to return array of directors
     function getDirectors($dataConnection)
@@ -77,7 +79,27 @@
     // Function to return array of genres
     function getGenres($dataConnection)
     {
+        // Query to get all genres
+        $query =    "SELECT genre_name FROM genre
+                    ORDER BY genre_name";
+        // Execute query
+        $result = $dataConnection->query($query);
         
+        // Create array to hold genres
+        $genres = array();
+        
+        // Check if results in query 
+        if ($result->num_rows > 0)
+        {
+            // loop through each genre and insert into array
+            while ($row = $result->fetch_assoc())
+            {
+                array_push($genres, $row['genre_name']);
+            }
+        }
+        
+        // Return genres array
+        return $genres;
     }
     
     // Function to return an array of classifications
@@ -132,7 +154,13 @@
             <div class="memberDetailsField"><label>Genre: </label>
                 <select name="genre_name"> *
                     <option value="blank">Select...</option>
-                    <option value="Fantasy">Fantasy</option>
+                    <?php
+                        // Loop through each genre in array and create list item for each
+                        foreach ($genres as $genre)
+                        {
+                            echo '<option value="'.$genre.'">'.$genre.'</option>'; 
+                        }
+                    ?>
                 </select> *
             </div>
             <div class="memberDetailsField"><label>New Genre: </label><input type="text" name="new_genre" /></div>
