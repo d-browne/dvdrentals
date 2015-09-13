@@ -22,6 +22,8 @@
     $studios = getStudios($dataConnection);
     // Get array of genres to populate select box
     $genres = getGenres($dataConnection);
+    // Get array of classifications to populate select box
+    $classifications = getClassifications($dataConnection);
     
     // Function to return array of directors
     function getDirectors($dataConnection)
@@ -105,7 +107,28 @@
     // Function to return an array of classifications
     function getClassifications($dataConnection)
     {
+        // Query to get all classifications
+        $query =    "SELECT classification FROM movie
+                    GROUP BY classification
+                    ORDER BY classification";
+        // Execute query
+        $result = $dataConnection->query($query);
         
+        // Create array to hold classifications
+        $classifications = array();
+        
+        // Check if results from query
+        if ($result->num_rows > 0 )
+        {
+            // Loop through each result and add classification to array
+            while ($row = $result->fetch_assoc())
+            {
+                array_push($classifications, $row['classification']);
+            }
+        }
+        
+        // Return classifications array
+        return $classifications;
     }
     
     // Function to return an array of actors
@@ -115,7 +138,7 @@
     }
 
 ?>
-
+<div id="starMeaning">* = Compulsory</div>
 <form action="admin.php?action=new_movie" method="POST">
     <div class="controlPanelSection">
         <fieldset>
@@ -167,7 +190,13 @@
             <div class="memberDetailsField"><label>Classification:</label>
                 <select name="classification_name"> *
                     <option value="blank">Select...</option>
-                    <option value="M">M</option>
+                    <?php
+                        // Loop through each classification in array and add option
+                        foreach ($classifications as $classification)
+                        {
+                            echo '<option value="'.$classification.'">'.$classification.'</option>'; 
+                        }
+                    ?>
                 </select> *
             </div>
             <div class="memberDetailsField"><label>New Classification: </label><input type="text" name="new_classification" /></div>
