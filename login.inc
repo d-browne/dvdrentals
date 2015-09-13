@@ -60,4 +60,4 @@
         </form>
     </fieldset>
 </div>
-<div id="infoBox">Not registered yet? Click <a href="join.html">here</a> to join.</div>
+<div id="infoBox">Not registered yet? Click <a href="join.php">here</a> to join.</div>
