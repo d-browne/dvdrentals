@@ -255,10 +255,56 @@
         
         if ($all_ok)
         {
+            // Connect to database
+            include 'connect_to_database.inc';
+            
+            // If director not valid create and use new director
+            if (!isValidDirector($director))
+            {
+                // Query to create new director
+                $query = "INSERT INTO director VALUES (DEFAULT, '".$new_director."');";
+                $dataConnection->query($query);
+                mysqli_refresh($dataConnection, MYSQLI_REFRESH_TABLES);
+                
+                // Use new director as director for reminder of script execution
+                $director = $new_director;
+            }
+            
+            // If studio not valid create and use new studio
+            if (!isValidStudio($studio))
+            {
+                // Query to create new studio
+                $query = "INSERT INTO studio VALUES (DEFAULT, '".$new_studio."');";
+                $dataConnection->query($query);
+                
+                // Use new studio as studio for remainder of script
+                $studio = $new_studio;
+            }
+            
+            // If genre not valid create and use new genre
+            if (!isValidGenre($genre))
+            {
+                // Query to create new genre
+                $query = "INSERT INTO genre VALUES (DEFAULT, '".$new_genre."');";
+                $dataConnection->query($query);
+                
+                // Use new genre as genre for the remainder of the script
+                $genre = $new_genre;
+            }
+            
+            // If classification not valid create and use new one
+            if (!isValidClassification($classification))
+            {
+                // Use new classification for remainder of the scipt
+                $classification = $new_classification;
+            }
+            
             // Copy poster to images folda.
             $thumbpath = time().$poster['name'];
             move_uploaded_file($poster['tmp_name'], 'images/movie_images/'.$thumbpath);
             echo 'image copied';
+            
+            // get dorector id
             $director_id = getDirectorId($director);
             echo 'director id is '.$director_id.'<br>';
             
@@ -270,8 +316,7 @@
             $genre_id = getGenreId($genre);
             echo 'genre id is: '.$genre_id.'<br>';
             
-            // Connect to databoos.
-            include 'connect_to_database.inc';
+            
             // Create query new el'movio
             $query = "INSERT INTO movie VALUES (DEFAULT, '".$title."', "
                     . "'".$tagline."', "
@@ -339,7 +384,7 @@
         $query = "SELECT director_id FROM director WHERE director_name = '".$director."'";
         $result = $dataConnection->query($query);
         $row = $result->fetch_assoc();
-        
+        var_dump($row);
         // Get director id from row
         $director_id = $row['director_id'];
         
