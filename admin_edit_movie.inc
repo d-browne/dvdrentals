@@ -9,6 +9,8 @@
     if ($dataConnection->connect_error) {
         die("Error connecting to database: " . $dataConnection->connect_error);
     }
+    
+    
 ?>
 
 <h2 id="controlPanelHeading">Edit/Remove Movie</h2>
