@@ -12,6 +12,7 @@
         $studio = mysqli_real_escape_string($dataConnection, $movieData['studio_name']);
         $new_studio = mysqli_real_escape_string($dataConnection, $movieData['new_studio']);
         $genre = mysqli_real_escape_string($dataConnection, $movieData['genre_name']);
+        $new_genre = mysqli_real_escape_string($dataConnection, $movieData['new_genre']);
         
         
         // Check valid title is working
@@ -114,7 +115,43 @@
             echo '<div id="resultsTag">Invalid Genre</div>';
         }
         
+        // Test if new genre is valid
+        if (isValidNewGenre($new_genre))
+        {
+            echo '<div id="resultsTag">Valid new genre</div>';
+        }
+        else
+        {
+            echo '<div id="resultsTag">Invalid new genre</div>';
+        }
         
+        
+    }
+    
+    // Function to check if new_genre is valid
+    // Must not be blank
+    // must NOT exist in database
+    function isValidNewGenre($new_genre)
+    {
+        if (empty($new_genre))
+        {
+            return false; // Is empty
+        }
+        
+        // Connect to database
+        include 'connect_to_database.inc';
+        
+        // Query to find typed genre
+        $query = "SELECT genre_name FROM genre WHERE genre_name = '".$new_genre."'";
+        $result = $dataConnection->query($query);
+        
+        // If genre in database return false
+        if ($result->num_rows > 0)
+        {
+            return false;
+        }
+        
+        return true; // Valid new genre
     }
     
     // Function to check if valid genre selected
