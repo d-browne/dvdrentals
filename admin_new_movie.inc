@@ -163,7 +163,7 @@
 
 ?>
 <div id="starMeaning">* = Compulsory</div>
-<form action="admin.php?action=new_movie" method="POST">
+<form action="admin.php?action=new_movie" method="POST" enctype="multipart/form-data">
     <div class="controlPanelSection">
         <fieldset>
             <legend>New Movie</legend>
