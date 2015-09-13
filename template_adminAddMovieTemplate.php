@@ -194,7 +194,7 @@
                         </fieldset>
                     </div>
                 </form>
-                <input type="submit" class="controlPanelButton" name="submit_create" value="Create Movie" />
+                <input type="reset" class="controlPanelButton" value="Reset" /><input type="submit" class="controlPanelButton" name="submit_create" value="Create Movie" />
                 </div>
 			</div>
 
