@@ -10,6 +10,9 @@
         $director = mysqli_real_escape_string($dataConnection, $movieData['director_name']);
         $new_director = mysqli_real_escape_string($dataConnection, $movieData['new_director']);
         $studio = mysqli_real_escape_string($dataConnection, $movieData['studio_name']);
+        $new_studio = mysqli_real_escape_string($dataConnection, $movieData['new_studio']);
+        $genre = mysqli_real_escape_string($dataConnection, $movieData['genre_name']);
+        
         
         // Check valid title is working
         if (isValidTitle($title))
@@ -81,7 +84,7 @@
             echo '<div id="resultsTag">New Director Invalid</div>';
         }
         
-        // Test to chick if valid stuio function working
+        // Test to check if valid stuio function working
         if (isValidStudio($studio))
         {
             echo '<div id="resultsTag">Valid studio</div>';
@@ -90,6 +93,73 @@
         {
             echo '<div id="resultsTag">Invalid studio</div>';
         }
+        
+        // Check if valid new studio function working
+        if (isValidNewStudio($new_studio))
+        {
+            echo '<div id="resultsTag">Valid New studio</div>';
+        }
+        else
+        {
+            echo '<div id="resultsTag">Invalid New studio</div>';
+        }
+        
+        // Check if valid genre
+        if (isValidGenre($genre))
+        {
+            echo '<div id="resultsTag">Valid genre</div>';
+        }
+        else
+        {
+            echo '<div id="resultsTag">Invalid Genre</div>';
+        }
+        
+        
+    }
+    
+    // Function to check if valid genre selected
+    // Must exist in database
+    function isValidGenre($genre) 
+    {
+        // Connect to database
+        include 'connect_to_database.inc';
+        
+        // Query database for selected genre
+        $query = "SELECT genre_name FROM genre WHERE genre_name = '".$genre."'";
+        $result = $dataConnection->query($query);
+        
+        // if genre exists in database return true
+        if ($result->num_rows > 0)
+        {
+            return true;
+        }
+        return false; // Genre not in database
+    }
+    
+    // Function to check if new studio is valid
+    // Must not be blank
+    // Must NOT exist in database
+    function isValidNewStudio($new_studio)
+    {
+        if (empty($new_studio))
+        {
+            return false; // Input is blank
+        }
+        
+        // Connect to database
+        include 'connect_to_database.inc';
+        
+        // Query database for studio
+        $query = "SELECT studio_name FROM studio WHERE studio_name = '".$new_studio."'";
+        $result = $dataConnection->query($query);
+        
+        // If studio exists in database return false
+        if ($result->num_rows > 0)
+        {
+            return false;
+        }
+        
+        return true; // New studio is valid
     }
     
     // Function to check if studio is valid
