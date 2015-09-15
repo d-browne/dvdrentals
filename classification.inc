@@ -122,7 +122,8 @@
     function getClassifications($dataConnection) {
         // Query to select directors
         $query = "SELECT classification FROM movie
-                  group by classification";
+                  group by classification
+                  ORDER BY classification";
         
         // Execute query
         $result = $dataConnection->query($query);
