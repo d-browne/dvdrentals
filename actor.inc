@@ -38,7 +38,7 @@
     
     // Function to return an array of actors
     function getActors($dataConnection) {
-        $query = "SELECT * from actor";             // SQL query to get actors
+        $query = "SELECT * from actor ORDER BY actor_name";             // SQL query to get actors
         $result = $dataConnection->query($query);   // Result of query
         $actors = array();                               // Array to hold actors
         
@@ -59,7 +59,8 @@
     function showMoviesByActor($actor_name, $dataConnection) {
         // Query to find out what movies actor name in
         $query =    "SELECT movie_id FROM movie_actor_view
-                     WHERE actor_name = '".$actor_name."'";
+                     WHERE actor_name = '".$actor_name."'
+                     ORDER BY actor_name";
         
         // run the query 
         $result = $dataConnection->query($query);
