@@ -3,6 +3,8 @@
     include 'random_movie.inc';
     
     $randomMovie = getRandomMovie();
+    
+    
 ?>
 
 <!DOCTYPE html>
@@ -57,9 +59,43 @@
 		<div id="centerColumn">
 			
 			<div class="section">
-				<h2 id="mainHeader">Join us now and reserve your DVD rentals!</h2>
+                            
+                                <?php
+                                    //If the access method was post then process the form
+                                    if(isset($_POST['submit'])){
 
-					<form action="http://infotech.scu.edu.au/cgi-bin/echo_form" method="post" id="joinForm">
+                                       // For DEBUG
+                                       //print "<h2>POST result</h2>";
+                                       //$formdata = $_POST;
+                                       //foreach ($formdata as $element => $value)
+                                       //  print "$element : $value <br />\n";
+
+                                       print "<h3>Status</h3>";
+                                       include_once 'validateUser.php';
+                                       if(ValidateUserForm($_POST)) { // all entered data good
+                                          include_once 'createUser.php';
+                                          $queryResult = createUser($_POST); // add time to this    
+                                          //See if the creation worked.
+                                          if($queryResult['succeeded']){
+                                             //Success message
+                                             print "<p class = 'centre'>Congratulations $_POST[othername] 
+                                                    you have successfully signed up at the DVD Emporium and can 
+                                                    now book movies!<br><a href='moviezone.php'>Would you like to
+                                                    go to the MovieZone page and Log In?</a></p>";
+
+                                          }
+                                          else {
+                                             //Failure message
+                                             print "<p class = 'centre'>There was a database failure while 
+                                                   creating your user account. Please contact the site administrator.
+                                                   </p> <p class = 'centre'>Error message: $queryResult[error]</p>";
+                                          }
+                                       } 
+                                    }         
+                                 ?>
+                            
+				<h2 id="mainHeader">Join us now and reserve your DVD rentals!</h2>
+					<form action="join.php" method="post" id="joinForm">
 
 						<div id="personalDetailsSection">
 							<h3>Personal details</h3>
@@ -76,7 +112,7 @@
 							pattern="0[4-5]\d{2} \d{3} \d{3}"/><span id="mobileStar" class="compulsoryStar">x</span>
 							<br />
 							<label>Landline:</label>
-							<input id="landLine" type="text" maxlength="50" name="phonenum" placeholder="(0[2,3,6,7,8,or 9]) XXXXXXXX" pattern="0[2-9]\d{8}" /><span id="landlineStar" class="compulsoryStar">x</span>
+							<input id="landLine" type="text" maxlength="50" name="phonenum" placeholder="(0[2,3,6,7,8,or 9]) XXXXXXXX" pattern="\(0[2,3,6,7,8,9]\)\s\d\d\d\d\d\d\d\d" /><span id="landlineStar" class="compulsoryStar">x</span>
 							<br />
 							<label>Email:</label>
 							<input id="email" type="email" maxlength="50" name="email" placeholder="Enter valid email" required/><span id="emailStar" class="compulsoryStar">x</span>
@@ -130,13 +166,13 @@
 							<h3>User details</h3>
 
 							<label>Username:</label>
-							<input id="userName" type="text" maxlength="50" name="userName" placeholder="6 chars, no whitespace" pattern="[^\s]{6,}" required/><span class="compulsoryStar">x</span>
+							<input id="userName" type="text" maxlength="50" name="joinusername" placeholder="6 chars, no whitespace" pattern="[^\s]{6,}" required/><span class="compulsoryStar">x</span>
 							<br />
 							<label>Password:</label>
-							<input id="passWord" type="password" maxlength="10" name="passWord" placeholder="type password" required/><span class="compulsoryStar">x</span>
+							<input id="passWord" type="password" maxlength="10" name="userpass" placeholder="type password" required/><span class="compulsoryStar">x</span>
 							<br />
 							<label>Verify password:</label>
-							<input id="verifyPassWord" type="password" maxlength="10" name="verifyPassWord" placeholder="type password again" required/><span class="compulsoryStar">x</span>
+							<input id="verifyPassWord" type="password" maxlength="10" name="verifypass" placeholder="type password again" required/><span class="compulsoryStar">x</span>
 							<br /><br />
 							<input id="submit" type="submit" value="Submit" name="submit" onClick="return submitButtonClicked()" >
 							<input id="resetButton" type="reset" onClick="defaultContacts()">
