@@ -69,48 +69,49 @@
 							<span class="compulsoryStar">x</span>
 							<br/>
 							<label>Other names:</label>
-							<input id="otherNames" type="text" maxlength="60" name="otherNames" placeholder="Enter other names" pattern="[^\d]{2,60}" required/><span class="compulsoryStar">x</span>
+							<input id="otherNames" type="text" maxlength="60" name="othername" placeholder="Enter other names" pattern="[^\d]{2,60}" required/><span class="compulsoryStar">x</span>
 							<br />
 							<label>Mobile:</label>
-							<input id="mobile" type="text" maxlength="50" name="mobile" placeholder="0[4 or 5]XX XXX XXX"
+							<input id="mobile" type="text" maxlength="50" name="mobilenum" placeholder="0[4 or 5]XX XXX XXX"
 							pattern="0[4-5]\d{2} \d{3} \d{3}"/><span id="mobileStar" class="compulsoryStar">x</span>
 							<br />
 							<label>Landline:</label>
-							<input id="landLine" type="text" maxlength="50" name="landLine" placeholder="(0[2,3,6,7,8,or 9]) XXXXXXXX" pattern="0[2-9]\d{8}" /><span id="landlineStar" class="compulsoryStar">x</span>
+							<input id="landLine" type="text" maxlength="50" name="phonenum" placeholder="(0[2,3,6,7,8,or 9]) XXXXXXXX" pattern="0[2-9]\d{8}" /><span id="landlineStar" class="compulsoryStar">x</span>
 							<br />
 							<label>Email:</label>
 							<input id="email" type="email" maxlength="50" name="email" placeholder="Enter valid email" required/><span id="emailStar" class="compulsoryStar">x</span>
 							<br />
 							<label>Receve Magazine:</label>
-							<input id="recieveMagazine" type="checkbox" name="checkbox" checked="checked" /><span class="compulsoryStar">x</span>
+							<input id="recieveMagazine" type="checkbox" name="magazine" checked="checked" /><span class="compulsoryStar">x</span>
 							<br />
 							<label>Street Address:</label>
-							<input id="streetAddress" type="text" maxlength="50" name="streetAddress" placeholder="Street name/number" /><span id="streetStar" class="compulsoryStar">x</span>
+							<input id="streetAddress" type="text" maxlength="50" name="streetaddr" placeholder="Street name/number" /><span id="streetStar" class="compulsoryStar">x</span>
 							<br />
 							<label>State:</label>
-							<input id="sate" type="text" maxlength="50" name="state" placeholder="State or suburb"/><span id="stateStar" class="compulsoryStar">x</span>
+							<input id="sate" type="text" maxlength="50" name="suburbstate" placeholder="State or suburb"/><span id="stateStar" class="compulsoryStar">x</span>
 							<br />
 							<label>Post Code:</label>
-							<input id="postCode" type="text" maxlength="50" name="postCode" placeholder="XXXX" pattern="\d{4}"/><span id="postStar" class="compulsoryStar">x</span>
+							<input id="postCode" type="text" maxlength="50" name="postcode" placeholder="XXXX" pattern="\d{4}"/><span id="postStar" class="compulsoryStar">x</span>
 							<br />
 							<label>Occupation:</label>
 							<select id="occupation" name="occupation">
-								<option value="none">None</option>
-								<option value="Builder">Builder</option>
-								<option value="Baker">Baker</option>
-								<option value="CandleMaker">Candle Maker</option>
-								<option value="Student">Student</option>
-								<option value="Teacher">Teacher</option>
-								<option value="Priest">Priest</option>
-								<option value="nPostie">Postie</option>
-								<option value="Cop">Cop</option>
-								<option value="Other">Other</option>
+								<option value="blank" disabled>Select... </option>                        
+                                                                <option value="Student">Student</option>
+                                                                <option value="Manager">Manager</option>
+                                                                <option value="Healthcare">Medical worker</option>
+                                                                <option value="Trades">Trades worker</option>
+                                                                <option value="Educator">Education</option>
+                                                                <option value="Technician">Technician</option>
+                                                                <option value="Clerical">Clerical worker</option>
+                                                                <option value="Retail">Retail worker</option>
+                                                                <option value="Researcher">Researcher</option>
+                                                                <option value="Other">Other</option>
 							</select><span class="compulsoryStar">x</span>
 							<br/>
 							<label>Preffered Contact:</label>
-							Mobile: 	<input id="contactMobile" type="radio" value="contactMobile" name="contactMethod">
-							Email:		<input id="contactEmail" type="radio" value="contactEmail" checked="checked" name="contactMethod">
-							Landline: 	<input id="contactLandline" type="radio" value="contactLandline" name="contactMethod">
+							Mobile: 	<input id="contactMobile" type="radio" value="contactMobile" name="contactmethod">
+							Email:		<input id="contactEmail" type="radio" value="contactEmail" checked="checked" name="contactmethod">
+							Landline: 	<input id="contactLandline" type="radio" value="contactLandline" name="contactmethod">
 
 							<input id="joinDate" name="joinDate" type="hidden" value="unset">
 
