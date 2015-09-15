@@ -60,6 +60,10 @@
 			
 			<div class="section">
                             
+                                
+                            
+				<h2 id="mainHeader">Join us now and reserve your DVD rentals!</h2>
+                                
                                 <?php
                                     //If the access method was post then process the form
                                     if(isset($_POST['submit'])){
@@ -93,8 +97,7 @@
                                        } 
                                     }         
                                  ?>
-                            
-				<h2 id="mainHeader">Join us now and reserve your DVD rentals!</h2>
+                                
 					<form action="join.php" method="post" id="joinForm">
 
 						<div id="personalDetailsSection">
