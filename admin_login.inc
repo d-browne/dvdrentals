@@ -27,7 +27,7 @@
                 <span class="inputSpan"><input type="text" name="userName" placeholder="Username" required /></span>
             </div>
             <div class="loginField"><label>Password: </label>
-                <span class="inputSpan"><input type="text" name="password" placeholder="Password" required />
+                <span class="inputSpan"><input type="password" name="password" placeholder="Password" required />
             </div>
             <input id="loginButton" type="submit" name="submit" value="Login" />
         </form>

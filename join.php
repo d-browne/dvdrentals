@@ -124,10 +124,10 @@
 							<input id="recieveMagazine" type="checkbox" name="magazine" checked="checked" /><span class="compulsoryStar">x</span>
 							<br />
 							<label>Street Address:</label>
-							<input id="streetAddress" type="text" maxlength="50" name="streetaddr" placeholder="Street name/number" /><span id="streetStar" class="compulsoryStar">x</span>
+							<input id="streetAddress" type="text" maxlength="50" name="streetaddr" placeholder="Street number, name" /><span id="streetStar" class="compulsoryStar">x</span>
 							<br />
 							<label>State:</label>
-							<input id="sate" type="text" maxlength="50" name="suburbstate" placeholder="State or suburb"/><span id="stateStar" class="compulsoryStar">x</span>
+							<input id="sate" type="text" maxlength="50" name="suburbstate" placeholder="Suburb, State"/><span id="stateStar" class="compulsoryStar">x</span>
 							<br />
 							<label>Post Code:</label>
 							<input id="postCode" type="text" maxlength="50" name="postcode" placeholder="XXXX" pattern="\d{4}"/><span id="postStar" class="compulsoryStar">x</span>
@@ -172,7 +172,7 @@
 							<input id="userName" type="text" maxlength="50" name="joinusername" placeholder="6 chars, no whitespace" pattern="[^\s]{6,}" required/><span class="compulsoryStar">x</span>
 							<br />
 							<label>Password:</label>
-							<input id="passWord" type="password" maxlength="10" name="userpass" placeholder="type password" required/><span class="compulsoryStar">x</span>
+							<input id="passWord" type="password" maxlength="10" name="userpass" placeholder="6 to 10 chars" required/><span class="compulsoryStar">x - 6-10 chars and contain least one uppercase, lowercase, number and special character</span>
 							<br />
 							<label>Verify password:</label>
 							<input id="verifyPassWord" type="password" maxlength="10" name="verifypass" placeholder="type password again" required/><span class="compulsoryStar">x</span>
