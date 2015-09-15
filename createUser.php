@@ -22,6 +22,9 @@ function createUser($formdata){
     $occupation = $formdata['occupation'];    
     $joinusername = $formdata['joinusername'];
     $userpass = $formdata['userpass'];
+    $streetaddr = $formdata['streetaddr'];
+    $suburbstate = $formdata['suburbstate'];
+    $postcode = $formdata['postcode'];
     $joindate = date("Y-m-d"); // used server date this time not client
     if(!isset($formdata['magazine']))
        $magazine = 0;

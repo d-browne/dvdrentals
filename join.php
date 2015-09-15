@@ -121,7 +121,7 @@
 							<input id="email" type="email" maxlength="50" name="email" placeholder="Enter valid email" required/><span id="emailStar" class="compulsoryStar">x</span>
 							<br />
 							<label>Receve Magazine:</label>
-							<input id="recieveMagazine" type="checkbox" name="magazine" checked="checked" /><span class="compulsoryStar">x</span>
+							<input id="recieveMagazine" type="checkbox" name="magazine" checked="checked" value="yes" /><span class="compulsoryStar">x</span>
 							<br />
 							<label>Street Address:</label>
 							<input id="streetAddress" type="text" maxlength="50" name="streetaddr" placeholder="Street number, name" /><span id="streetStar" class="compulsoryStar">x</span>
