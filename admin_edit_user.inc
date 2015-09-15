@@ -47,6 +47,31 @@
 </div>
 
 <?php
+    // Check POST submited (to delete or edit user)
+    if(isset($_POST['submit']))
+    {
+        // Check if user delete requested delete username from database
+        if ($_POST['submit'] == 'Remove User')
+        {
+            // Get username, escape to avoid sql injection
+            $username = mysqli_real_escape_string($dataConnection, $_POST['joinusername']);
+            
+            // Query to delete user
+            $query =  "DELETE FROM member WHERE username = '".$username."'";
+            $result = $dataConnection->query($query); // Execute query
+            
+            // Show member deleted
+            echo '<div id="resultsTag">Member "'.$username.'" deleted!</div>';
+        }
+        
+        if ($_POST['submit'] == 'Update User')
+        {
+            // Update user
+            include 'admin_edit_user_update.inc';
+        }
+    }
+        
+    
     // Check if GET request submitted with member_username
     if (isset($_GET['member_username']))
     {

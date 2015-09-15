@@ -11,7 +11,8 @@
             <legend>Member ID: <?php echo $member['member_id'] ?></legend>
             <div class="memberDetailsField"><label>Surname: </label><input type="text" name="surname" value="<?php echo $member['surname'] ?>" /></div>
             <div class="memberDetailsField"><label>Other Names: </label><input type="text" name="othername" value="<?php echo $member['other_name'] ?>"/></div>
-            <div class="memberDetailsField"><label>Username: </label><input type="text" name="joinusername" value="<?php echo $member['username'] ?>" disabled/></div>
+            <div class="memberDetailsField"><label>Username: </label><input type="text" value="<?php echo $member['username'] ?>" disabled/></div>
+            <input type="hidden" name="joinusername" value="<?php echo $member['username'] ?>" />
             <div class="memberDetailsField"><label>Password: </label><input type="text" name="userpass" value="<?php echo $member['password'] ?>"/></div>
             <div class="memberDetailsField"><label>Occupation: </label>
                 <select name="occupation">
@@ -48,11 +49,11 @@
     <div class="controlPanelSection">
         <fieldset>
             <legend>Magazine</legend>
-            <div class="memberDetailsField"><label>Recieve Magazine: </label><input type="checkbox" name="magazine"  <?php if ($member['magazine'] == 1) { echo 'checked'; } ?> /></div>
+            <div class="memberDetailsField"><label>Recieve Magazine: </label><input type="checkbox" name="magazine"  value="yes" <?php if ($member['magazine'] == 1) { echo 'checked'; } ?> /></div>
             <div class="memberDetailsField"><label>Street Address: </label><input type="text" name="streetaddr" value="<?php echo $member['street'] ?>" /></div>
             <div class="memberDetailsField"><label>Suburb and State: </label><input type="text" name="suburbstate" value="<?php echo $member['suburb'] ?>" /></div>
             <div class="memberDetailsField"><label>Postcode: </label><input type="text" name="postcode" value="<?php echo $member['postcode'] ?>" /></div>
         </fieldset>
     </div>
-    <input type="submit" class="controlPanelButton" value="Remove User" /><input type="submit" class="controlPanelButton" value="Update User" />
+    <input type="submit" class="controlPanelButton" name="submit" value="Update User" /><input type="submit" class="controlPanelButton" name="submit" value="Remove User" />
 </form>

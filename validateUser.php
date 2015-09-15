@@ -52,7 +52,7 @@ function validateUserForm ($formdata) { // for join.php
              between 6 and 10 characters.<br>
              Use the back button on your browser to correct this error.</div>";
    }
-   else if(usernameAlreadyExists($formdata)) {
+   else if(usernameAlreadyExists($formdata) && $formdata['submit'] != 'Update User') {
       print "<div class = \"centre\">Error in \"Username and Password\" The Username you have 
              entered is already in use, Please try again.<br>
              Use the back button on your browser to correct this error.</div>";
@@ -191,7 +191,11 @@ function validateUserPass($formdata){
 
 //match passwords
 function validatePasswdMatch($formdata){
-
+    // Ignore varifypassword if it's an update request
+    if ($formdata['submit'] == 'Update User')
+    {
+        return true;
+    }
    if($formdata['userpass'] != $formdata['verifypass']){
       return false;
    }
