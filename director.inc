@@ -122,7 +122,7 @@
     // Function to return directr names and ids
     function getDirectors($dataConnection) {
         // Query to select director
-        $query = "SELECT * FROM director";
+        $query = "SELECT * FROM director ORDER BY director_name";
         
         //Execute query
         $result = $dataConnection->query($query);
