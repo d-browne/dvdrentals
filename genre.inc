@@ -122,7 +122,7 @@
     // Function to return genre names and ids
     function getGenres($dataConnection) {
         // Query to select genres
-        $query = "SELECT * FROM genre";
+        $query = "SELECT * FROM genre ORDER BY genre_name";
         
         //Execute query
         $result = $dataConnection->query($query);
